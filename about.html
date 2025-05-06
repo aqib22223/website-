@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me | Aqib Ali</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- AOS Library -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" crossorigin="anonymous"></script>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+      background: linear-gradient(to right, #dbeafe, #f0fdf4, #fef9c3);
+    }
+    .bg-animated {
+      background: linear-gradient(-45deg, #0f172a, #1e293b, #0d9488, #1e3a8a);
+      background-size: 400% 400%;
+      animation: gradientBG 20s ease infinite;
+    }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .nav-link:hover {
+      color: #0ea5e9;
+      text-decoration: underline;
+      transition: color 0.3s ease, text-decoration 0.3s ease;
+    }
+
+    .btn-hover:hover {
+      background-color: #0f172a;
+      color: #facc15;
+      transform: scale(1.05);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .card-shadow:hover {
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2), 0 8px 10px rgba(0, 0, 0, 0.15);
+      transform: translateY(-5px);
+      transition: all 0.3s ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-animated text-gray-100">
+
+  <!-- Navbar -->
+  <header class="fixed top-0 left-0 w-full bg-black shadow-md z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold text-white">Aqib Ali</h1>
+      <nav class="space-x-6 font-medium text-gray-300">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About Me</a>
+        <a href="services.html" class="nav-link">My Services</a>
+        <a href="skills.html" class="nav-link">My Skills</a>
+        <a href="contact.html" class="nav-link">Contact Me</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="pt-32 space-y-24">
+
+    <!-- About Me -->
+    <section id="about" class="px-6 text-center" data-aos="fade-up">
+      <h2 class="text-4xl font-bold text-emerald-300 mb-6">Who I Am</h2>
+      <p class="max-w-4xl mx-auto text-lg leading-relaxed text-gray-100">
+        I'm a dedicated and curious tech enthusiast, currently pursuing a Bachelor of Science in Computer Science from the University of the People. I also hold a Diploma in Information Technology from Modern Institute of Science and Technology. My passion lies in solving real-world problems using innovative digital solutions. I enjoy exploring new tools, languages, and platforms, and I believe in continuous learning and growing every day.
+      </p>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="py-16 bg-gray-900 text-center" data-aos="fade-up">
+      <h2 class="text-3xl font-bold text-yellow-400 mb-8">Education</h2>
+      <div class="max-w-3xl mx-auto">
+        <div class="bg-indigo-900 rounded-xl p-6 shadow-md card-shadow mb-6">
+          <h3 class="text-xl font-semibold text-white">🎓 Bachelor of Science in Computer Science</h3>
+          <p class="text-sm text-gray-300">University of the People (Online, USA)</p>
+        </div>
+        <div class="bg-teal-800 rounded-xl p-6 shadow-md card-shadow">
+          <h3 class="text-xl font-semibold text-white">💻 Diploma in Information Technology</h3>
+          <p class="text-sm text-gray-300">Modern Institute of Science and Technology</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications -->
+    <section id="certifications" class="py-20 bg-gradient-to-br from-slate-800 to-slate-900 text-center" data-aos="fade-up">
+      <h2 class="text-3xl font-bold mb-10 text-rose-300">Tech Courses & Certifications</h2>
+      <ul class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto text-left text-base text-gray-200">
+        <li>☑ Introduction to Java and OOP – University of Pennsylvania</li>
+        <li>☑ Software Engineering – IBM</li>
+        <li>☑ Basic Python – University of Michigan</li>
+        <li>☑ SQL Course – TestDome</li>
+        <li>☑ Generative AI – United Latino Student Association</li>
+        <li>☑ AI Skills – Accenture & FutureLearn</li>
+        <li>☑ Microsoft 365 Specialization – Microsoft</li>
+        <li>☑ Microsoft Fundamentals Specialization – Microsoft</li>
+        <li>☑ Google Project Management Certificate – Google</li>
+      </ul>
+    </section>
+
+    <!-- Tools -->
+    <section id="tools" class="py-20 bg-gray-900 text-center" data-aos="fade-up">
+      <h2 class="text-3xl font-bold mb-10 text-indigo-300">Tools, Platforms & Languages I Use</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-lg font-medium text-gray-100">
+        <div>💻 Visual Studio Code</div>
+        <div>🎨 Adobe Photoshop</div>
+        <div>🎞 DaVinci Resolve</div>
+        <div>🌐 WordPress</div>
+        <div>🖥 HTML/CSS</div>
+        <div>📦 JavaScript</div>
+        <div>🐍 Python</div>
+        <div>☕ Java</div>
+        <div>📄 Microsoft Word/Excel/PowerPoint</div>
+        <div>🛠 Git & GitHub</div>
+        <div>💽 SQL</div>
+        <div>🧠 AI Tools (ChatGPT, Copilot)</div>
+      </div>
+    </section>
+
+    <!-- Download CV -->
+    <section id="download" class="py-20 bg-gradient-to-r from-cyan-800 to-blue-900 text-center text-white" data-aos="zoom-in">
+      <h2 class="text-3xl font-bold mb-4 text-yellow-300">Download My CV</h2>
+      <p class="mb-8">Get a detailed view of my qualifications and skills.</p>
+      <a href="AqibAli_CV.pdf" download class="btn-hover px-6 py-3 font-semibold rounded-full shadow-lg bg-yellow-400 text-black">📥 Download CV</a>
+    </section>
+
+  </main>
+
+  <!-- Footer with Social Media Icons -->
+  <footer class="bg-black py-10 text-center">
+    <div class="flex justify-center space-x-6 mb-6">
+      <a href="https://www.instagram.com/peaceful_heart66?igsh=am01cno0eHk2N29j" target="_blank"
+         class="bg-white text-black rounded-full p-4 text-xl hover:bg-gradient-to-br from-pink-500 to-yellow-500">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/aqib-ali-683330247?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"
+         class="bg-white text-black rounded-full p-4 text-xl hover:bg-blue-700">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a href="https://www.facebook.com/share/15JutvMF9w/" target="_blank"
+         class="bg-white text-black rounded-full p-4 text-xl hover:bg-blue-600">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://wa.me/qr/XEEE7HJORDPKJ1" target="_blank"
+         class="bg-white text-black rounded-full p-4 text-xl hover:bg-green-500">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
+    <p class="text-gray-400 text-sm font-medium">&copy; 2025 Aqib Ali. All rights reserved.</p>
+  </footer>
+
+  <!-- AOS Animation -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>

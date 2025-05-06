@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Skills | Aqib Ali</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- AOS Library for Scroll Animations -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #0f172a, #1e293b);
+      color: #e0e0e0;
+    }
+
+    .nav-link {
+      transition: all 0.3s ease-in-out;
+    }
+
+    .nav-link:hover {
+      color: #60a5fa;
+      transform: scale(1.1);
+    }
+
+    .category {
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid #334155;
+      transition: all 0.4s ease;
+    }
+
+    .category:hover {
+      transform: translateY(-5px) scale(1.03);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      background: rgba(51, 65, 85, 0.8);
+    }
+
+    .icon-box:hover {
+      transform: rotate(5deg);
+      transition: transform 0.4s;
+    }
+
+    footer {
+      border-top: 1px solid #334155;
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-gray-300">
+
+  <!-- Navbar -->
+  <header class="fixed top-0 left-0 w-full bg-slate-800 shadow-lg z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold text-sky-400">Aqib Ali</h1>
+      <nav class="space-x-4 sm:space-x-6 font-medium text-gray-300 text-sm sm:text-base">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About Me</a>
+        <a href="services.html" class="nav-link">My Services</a>
+        <a href="skills.html" class="nav-link">My Skills</a>
+        <a href="contact.html" class="nav-link">Contact Me</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Skills Section -->
+  <main class="pt-32 pb-20">
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-aos="fade-up">
+      <h2 class="text-4xl sm:text-5xl font-bold text-center text-sky-400 mb-6 animate-pulse">My Professional Skills</h2>
+      <p class="text-center text-lg sm:text-xl max-w-3xl mx-auto mb-12 text-gray-400">
+        I have developed a strong set of technical and creative skills over the years. Below is a breakdown of my expertise grouped by categories.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Skill Categories -->
+        <div class="category p-6 rounded-2xl shadow-xl" data-aos="zoom-in">
+          <h3 class="text-2xl font-semibold mb-4 text-sky-300">🎨 Frontend Development</h3>
+          <ul class="space-y-3">
+            <li class="flex items-center gap-2"><i class="fab fa-react text-blue-400 animate-spin"></i> React.js</li>
+            <li class="flex items-center gap-2"><i class="fab fa-html5 text-orange-400"></i> HTML5 & CSS3</li>
+            <li class="flex items-center gap-2"><i class="fas fa-code text-pink-400"></i> Tailwind CSS</li>
+            <li class="flex items-center gap-2"><i class="fab fa-js text-yellow-300"></i> JavaScript (ES6+)</li>
+            <li class="flex items-center gap-2"><i class="fas fa-wave-square text-indigo-300"></i> Framer Motion</li>
+          </ul>
+        </div>
+
+        <div class="category p-6 rounded-2xl shadow-xl" data-aos="zoom-in">
+          <h3 class="text-2xl font-semibold mb-4 text-indigo-300">🛠 Backend Development</h3>
+          <ul class="space-y-3">
+            <li><i class="fab fa-node-js text-green-400"></i> Node.js</li>
+            <li><i class="fas fa-server text-blue-300"></i> Express.js</li>
+            <li><i class="fas fa-database text-green-300"></i> MongoDB</li>
+            <li><i class="fas fa-fire text-red-400"></i> Firebase</li>
+            <li><i class="fas fa-plug text-gray-300"></i> REST APIs</li>
+          </ul>
+        </div>
+
+        <div class="category p-6 rounded-2xl shadow-xl" data-aos="zoom-in">
+          <h3 class="text-2xl font-semibold mb-4 text-pink-300">💻 Programming Languages</h3>
+          <ul class="space-y-3">
+            <li><i class="fab fa-python text-yellow-400"></i> Python</li>
+            <li><i class="fab fa-java text-red-500"></i> Java</li>
+            <li><i class="fas fa-code text-blue-300"></i> C++</li>
+            <li><i class="fas fa-database text-purple-400"></i> SQL</li>
+            <li><i class="fas fa-brain text-pink-400"></i> R (basic)</li>
+          </ul>
+        </div>
+
+        <div class="category p-6 rounded-2xl shadow-xl" data-aos="zoom-in">
+          <h3 class="text-2xl font-semibold mb-4 text-green-300">🧰 Tools & Platforms</h3>
+          <ul class="space-y-3">
+            <li><i class="fab fa-git-alt text-orange-400"></i> Git & GitHub</li>
+            <li><i class="fab fa-wordpress text-blue-300"></i> WordPress</li>
+            <li><i class="fas fa-terminal text-gray-200"></i> VS Code</li>
+            <li><i class="fas fa-rocket text-indigo-300"></i> Netlify & Vercel</li>
+            <li><i class="fas fa-bolt text-yellow-300"></i> Postman</li>
+          </ul>
+        </div>
+
+        <div class="category p-6 rounded-2xl shadow-xl" data-aos="zoom-in">
+          <h3 class="text-2xl font-semibold mb-4 text-yellow-300">🎨 Design & Media</h3>
+          <ul class="space-y-3">
+            <li><i class="fas fa-paint-brush text-pink-400"></i> Adobe Photoshop</li>
+            <li><i class="fas fa-film text-red-400"></i> Adobe Premiere Pro</li>
+            <li><i class="fas fa-cut text-green-300"></i> CapCut</li>
+            <li><i class="fab fa-canva text-indigo-300"></i> Canva</li>
+            <li><i class="fas fa-video text-blue-300"></i> Video Editing</li>
+          </ul>
+        </div>
+
+        <div class="category p-6 rounded-2xl shadow-xl" data-aos="zoom-in">
+          <h3 class="text-2xl font-semibold mb-4 text-purple-300">🧠 Soft Skills</h3>
+          <ul class="space-y-3">
+            <li><i class="fas fa-comments text-green-300"></i> Communication</li>
+            <li><i class="fas fa-puzzle-piece text-indigo-300"></i> Problem Solving</li>
+            <li><i class="fas fa-users text-purple-400"></i> Teamwork</li>
+            <li><i class="fas fa-eye text-pink-300"></i> Attention to Detail</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center text-sm text-gray-400 py-8 mt-12">
+    <div class="flex justify-center space-x-6 text-xl mb-4">
+      <a href="https://www.instagram.com/peaceful_heart66?igsh=am01cno0eHk2N29j" target="_blank" class="hover:text-pink-400">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/aqib-ali-683330247?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="hover:text-blue-400">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://www.facebook.com/share/15JutvMF9w/" target="_blank" class="hover:text-blue-300">
+        <i class="fab fa-facebook"></i>
+      </a>
+      <a href="https://wa.me/qr/XEEE7HJORDPKJ1" target="_blank" class="hover:text-green-400">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
+    <p>&copy; 2025 Aqib Ali. All rights reserved.</p>
+  </footer>
+
+  <!-- AOS Init -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init({ duration: 1000 });</script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Services | Aqib Ali</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e293b, #334155);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: #e2e8f0;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .nav-link:hover {
+      color: #38bdf8;
+      transform: scale(1.05);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .service-card {
+      background: #1e293bcc;
+      backdrop-filter: blur(12px);
+      border: 1px solid #475569;
+      transition: all 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+    }
+
+    .rotate-emoji {
+      display: inline-block;
+      animation: rotate 6s linear infinite;
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .icon-box:hover {
+      transform: rotate(5deg);
+      transition: transform 0.4s;
+    }
+  </style>
+</head>
+<body class="text-gray-200">
+
+  <!-- Navbar -->
+  <header class="fixed top-0 left-0 w-full bg-gray-900 shadow-md z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold text-cyan-400">Aqib Ali</h1>
+      <nav class="space-x-4 sm:space-x-6 font-medium text-gray-300 text-sm sm:text-base">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About Me</a>
+        <a href="services.html" class="nav-link">My Services</a>
+        <a href="skills.html" class="nav-link">My Skills</a>
+        <a href="contact.html" class="nav-link">Contact Me</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Services Section -->
+  <main class="pt-32 pb-20">
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-aos="fade-up">
+      <h2 class="text-4xl sm:text-5xl font-bold text-center text-cyan-400 mb-6 animate-pulse">My Services</h2>
+      <p class="text-center text-lg sm:text-xl max-w-3xl mx-auto mb-12 text-gray-300">
+        I offer a wide range of tech and creative services to help you grow online and stand out professionally.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Service Cards -->
+        <div class="service-card p-6 rounded-2xl shadow-xl" data-aos="zoom-in">
+          <h3 class="text-2xl font-semibold mb-4 text-cyan-300"><span class="rotate-emoji">💻</span> Web Development</h3>
+          <ul class="space-y-3 text-gray-300">
+            <li><i class="fas fa-globe text-blue-400"></i> Build responsive websites</li>
+            <li><i class="fas fa-laptop-code text-teal-400"></i> Add interactive features</li>
+            <li><i class="fas fa-mobile-alt text-indigo-400"></i> Mobile-friendly design</li>
+          </ul>
+        </div>
+
+        <div class="service-card p-6 rounded-2xl shadow-xl" data-aos="zoom-in">
+          <h3 class="text-2xl font-semibold mb-4 text-teal-300"><span class="rotate-emoji">🌐</span> WordPress Services</h3>
+          <ul class="space-y-3 text-gray-300">
+            <li><i class="fab fa-wordpress text-blue-400"></i> Custom WordPress sites</li>
+            <li><i class="fas fa-plug text-gray-400"></i> Themes & plugins setup</li>
+            <li><i class="fas fa-rocket text-green-400"></i> Speed & optimization</li>
+          </ul>
+        </div>
+
+        <div class="service-card p-6 rounded-2xl shadow-xl" data-aos="zoom-in">
+          <h3 class="text-2xl font-semibold mb-4 text-purple-300"><span class="rotate-emoji">🎨</span> Graphic Design</h3>
+          <ul class="space-y-3 text-gray-300">
+            <li><i class="fas fa-paint-brush text-orange-400"></i> Logo & brand design</li>
+            <li><i class="fas fa-image text-green-400"></i> Social media graphics</li>
+            <li><i class="fas fa-bullhorn text-pink-400"></i> Marketing materials</li>
+          </ul>
+        </div>
+
+        <div class="service-card p-6 rounded-2xl shadow-xl" data-aos="zoom-in">
+          <h3 class="text-2xl font-semibold mb-4 text-yellow-300"><span class="rotate-emoji">🎬</span> Video Editing</h3>
+          <ul class="space-y-3 text-gray-300">
+            <li><i class="fas fa-video text-blue-400"></i> Edit social media videos</li>
+            <li><i class="fas fa-magic text-yellow-400"></i> Add effects & transitions</li>
+            <li><i class="fas fa-music text-red-400"></i> Enhance with music/sound</li>
+          </ul>
+        </div>
+
+        <div class="service-card p-6 rounded-2xl shadow-xl" data-aos="zoom-in">
+          <h3 class="text-2xl font-semibold mb-4 text-pink-300"><span class="rotate-emoji">📄</span> CV & Resume Writing</h3>
+          <ul class="space-y-3 text-gray-300">
+            <li><i class="fas fa-file-alt text-blue-400"></i> Professional CVs</li>
+            <li><i class="fas fa-envelope text-indigo-400"></i> Cover letters</li>
+            <li><i class="fab fa-linkedin text-blue-300"></i> LinkedIn profiles</li>
+          </ul>
+        </div>
+
+        <div class="service-card p-6 rounded-2xl shadow-xl" data-aos="zoom-in">
+          <h3 class="text-2xl font-semibold mb-4 text-lime-300"><span class="rotate-emoji">🧠</span> Tech Consultation</h3>
+          <ul class="space-y-3 text-gray-300">
+            <li><i class="fas fa-chalkboard-teacher text-purple-400"></i> Project advice</li>
+            <li><i class="fas fa-lightbulb text-yellow-300"></i> Tech solutions</li>
+            <li><i class="fas fa-chart-line text-teal-400"></i> Business growth tips</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center text-sm text-gray-300 py-8 mt-12 bg-gray-900">
+    <div class="flex justify-center space-x-6 text-xl mb-4">
+      <a href="https://www.instagram.com/peaceful_heart66?igsh=am01cno0eHk2N29j" target="_blank" class="hover:text-pink-500">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/aqib-ali-683330247?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="hover:text-blue-400">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://www.facebook.com/share/15JutvMF9w/" target="_blank" class="hover:text-blue-500">
+        <i class="fab fa-facebook"></i>
+      </a>
+      <a href="https://wa.me/qr/XEEE7HJORDPKJ1" target="_blank" class="hover:text-green-400">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
+    <p>&copy; 2025 Aqib Ali. All rights reserved.</p>
+  </footer>
+
+  <!-- AOS Init -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>
