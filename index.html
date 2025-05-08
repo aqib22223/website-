@@ -3,211 +3,644 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Aqib Ali | Portfolio</title>
+  <meta name="description" content="Aqib Ali - Full Stack Developer, Graphic Designer, WordPress Expert & CV Writer">
+  <meta name="keywords" content="Aqib Ali, portfolio, web developer, designer, WordPress, CV writer">
+  <title>Aqib Ali | Digital Creator Portfolio</title>
 
-  <!-- Tailwind CSS -->
+  <!-- Preload Critical Resources -->
+  <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+  <link rel="preload" href="https://unpkg.com/aos@2.3.4/dist/aos.css" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" as="style">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" as="script">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js" as="script">
+
+  <!-- Tailwind CSS with Extended Config -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Animate On Scroll (AOS) -->
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
-  <!-- Custom Tailwind Config -->
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           fontFamily: {
-            pop: ['Poppins', 'sans-serif']
+            pop: ['Poppins', 'sans-serif'],
+            space: ['Space Grotesk', 'sans-serif']
           },
           colors: {
-            primary: '#2c3e50',
-            secondary: '#3498db',
-            accent: '#f39c12',
-            hover: '#16a085',
-            dark: '#1a1a1a',
+            primary: {
+              50: '#f8fafc',
+              100: '#f1f5f9',
+              200: '#e2e8f0',
+              300: '#cbd5e1',
+              400: '#94a3b8',
+              500: '#64748b',
+              600: '#475569',
+              700: '#334155',
+              800: '#1e293b',
+              900: '#0f172a'
+            },
+            secondary: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              300: '#7dd3fc',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e'
+            },
+            accent: {
+              50: '#f5f3ff',
+              100: '#ede9fe',
+              200: '#ddd6fe',
+              300: '#c4b5fd',
+              400: '#a78bfa',
+              500: '#8b5cf6',
+              600: '#7c3aed',
+              700: '#6d28d9',
+              800: '#5b21b6',
+              900: '#4c1d95'
+            },
+            electric: {
+              400: '#00f5d4',
+              500: '#00bbf9',
+              600: '#9b5de5'
+            }
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'gradient-x': 'gradient-x 15s ease infinite',
+            'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'spin-slow': 'spin 8s linear infinite',
+            'text-gradient': 'text-gradient 8s ease infinite',
+            'border-pulse': 'border-pulse 4s ease infinite'
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-20px)' },
+            },
+            'gradient-x': {
+              '0%, 100%': { 'background-position': '0% 50%' },
+              '50%': { 'background-position': '100% 50%' },
+            },
+            'text-gradient': {
+              '0%, 100%': { 'background-position': 'left center' },
+              '50%': { 'background-position': 'right center' },
+            },
+            'border-pulse': {
+              '0%, 100%': { 'border-color': 'rgba(14, 165, 233, 0.5)' },
+              '50%': { 'border-color': 'rgba(155, 93, 229, 0.5)' },
+            }
           }
         }
       }
     }
   </script>
 
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Custom Styles -->
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
+    :root {
+      --color-primary: #0f172a;
+      --color-secondary: #0ea5e9;
+      --color-accent: #8b5cf6;
+      --color-electric: #00f5d4;
     }
+
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Particle Network Animation */
+    .particle-network {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      background: linear-gradient(45deg, var(--color-secondary), var(--color-accent));
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(1px);
+    }
+
+    /* Glass Morphism Effect */
     .glass {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      box-shadow: 0 8px 32px 0 rgba(14, 165, 233, 0.1);
+    }
+
+    .glass:hover {
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 8px 32px 0 rgba(14, 165, 233, 0.2);
+      transform: translateY(-5px);
+    }
+
+    /* Gradient Text */
+    .gradient-text {
+      background: linear-gradient(45deg, var(--color-secondary), var(--color-accent), var(--color-electric));
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: text-gradient 8s ease infinite;
+    }
+
+    /* Navigation Link Animation */
+    .nav-link {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nav-link::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: 0;
+      left: -100%;
+      background: linear-gradient(90deg, transparent, var(--color-secondary), transparent);
+      transition: all 0.4s ease;
+    }
+
+    .nav-link:hover::before {
+      left: 100%;
+    }
+
+    /* 3D Card Effect */
+    .card-3d {
+      transform-style: preserve-3d;
+      perspective: 1000px;
+      transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .card-3d:hover {
+      transform: translateY(-10px) rotateX(5deg) scale(1.02);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Floating Animation */
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(var(--color-secondary), var(--color-accent));
+      border-radius: 10px;
+      transition: all 0.3s;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(var(--color-accent), var(--color-electric));
+    }
+
+    /* Hamburger Animation */
+    .hamburger path {
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .hamburger-active .hamburger-top {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger-active .hamburger-middle {
+      opacity: 0;
+    }
+
+    .hamburger-active .hamburger-bottom {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Hero Glow Effect */
+    .hero-glow {
+      filter: drop-shadow(0 0 20px rgba(14, 165, 233, 0.4));
+    }
+
+    /* Animated Gradient Border */
+    .gradient-border {
+      position: relative;
       border-radius: 1rem;
     }
-    .hero-text {
-      animation: fadeInUp 1.2s ease-out;
+
+    .gradient-border::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      z-index: -1;
+      border-radius: 1rem;
+      background: linear-gradient(45deg, var(--color-secondary), var(--color-accent), var(--color-electric));
+      background-size: 200% 200%;
+      animation: gradient-x 8s ease infinite;
     }
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+
+    /* Button Hover Effect */
+    .btn-hover {
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      background-size: 200% auto;
+    }
+
+    .btn-hover:hover {
+      background-position: right center;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Section Transition */
+    .section-transition {
+      transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Focus Styles */
+    *:focus-visible {
+      outline: 2px solid var(--color-secondary);
+      outline-offset: 4px;
+      border-radius: 4px;
     }
   </style>
 </head>
 
-<body class="bg-gradient-to-br from-white via-blue-50 to-blue-100 scroll-smooth text-primary">
+<body class="bg-gradient-to-br from-white via-blue-50 to-blue-100 font-pop text-primary-900 antialiased">
 
-  <!-- Navbar -->
-  <header class="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur shadow-md">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center relative">
-      <!-- Hamburger Button (Mobile) -->
-      <button id="menu-toggle" class="md:hidden text-3xl z-50">
-        ☰
-      </button>
+  <!-- Particle Background -->
+  <div id="particle-network" class="particle-network"></div>
 
-      <!-- Centered Home Link -->
-      <div class="absolute left-1/2 transform -translate-x-1/2">
-        <a href="#home" class="text-2xl font-extrabold text-primary">Home</a>
+  <!-- Navigation -->
+  <header class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-lg shadow-sm z-50 transition-all duration-300 hover:bg-white/95">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <!-- Logo -->
+      <div class="flex items-center space-x-8">
+        <a href="#home" class="text-2xl font-bold text-primary-800 font-space hover:text-secondary-500 transition">
+          Aqib Ali
+        </a>
+        
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex space-x-8">
+          <a href="#home" class="nav-link text-primary-700 hover:text-secondary-500 font-medium">Home</a>
+          <a href="about.html" class="nav-link text-primary-700 hover:text-secondary-500 font-medium">About</a>
+          <a href="services.html" class="nav-link text-primary-700 hover:text-secondary-500 font-medium">Services</a>
+          <a href="skills.html" class="nav-link text-primary-700 hover:text-secondary-500 font-medium">Skills</a>
+          <a href="contact.html" class="nav-link text-primary-700 hover:text-secondary-500 font-medium">Contact</a>
+        </nav>
       </div>
 
-      <!-- Desktop Nav -->
-      <nav class="space-x-6 text-primary font-medium hidden md:flex">
-        <a href="about.html" class="hover:text-secondary transition">About Me</a>
-        <a href="services.html" class="hover:text-secondary transition">My Services</a>
-        <a href="skills.html" class="hover:text-secondary transition">My Skills</a>
-        <a href="contact.html" class="hover:text-secondary transition">Contact Me</a>
-      </nav>
+      <!-- Mobile Menu Button -->
+      <button id="menu-toggle" class="md:hidden focus:outline-none group" aria-label="Toggle menu">
+        <svg class="w-8 h-8 text-primary-700 group-hover:text-secondary-500 transition hamburger" viewBox="0 0 24 24">
+          <path id="hamburger-top" class="hamburger-top" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 6h16" />
+          <path id="hamburger-middle" class="hamburger-middle" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 12h16" />
+          <path id="hamburger-bottom" class="hamburger-bottom" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 18h16" />
+        </svg>
+      </button>
     </div>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="md:hidden fixed top-0 left-0 w-64 h-full bg-white shadow-lg transform -translate-x-full transition-transform duration-300 z-40">
-      <div class="p-6 space-y-6">
-        <a href="about.html" class="block text-lg font-medium hover:text-secondary">About Me</a>
-        <a href="services.html" class="block text-lg font-medium hover:text-secondary">My Services</a>
-        <a href="skills.html" class="block text-lg font-medium hover:text-secondary">My Skills</a>
-        <a href="contact.html" class="block text-lg font-medium hover:text-secondary">Contact Me</a>
+    <div id="mobile-menu" class="md:hidden hidden bg-white/95 backdrop-blur-lg px-6 pb-4 transition-all duration-300 transform origin-top">
+      <div class="flex flex-col space-y-4 py-4">
+        <a href="#home" class="py-2 text-primary-700 hover:text-secondary-500 border-b border-gray-100 transition">Home</a>
+        <a href="about.html" class="py-2 text-primary-700 hover:text-secondary-500 border-b border-gray-100 transition">About</a>
+        <a href="services.html" class="py-2 text-primary-700 hover:text-secondary-500 border-b border-gray-100 transition">Services</a>
+        <a href="skills.html" class="py-2 text-primary-700 hover:text-secondary-500 border-b border-gray-100 transition">Skills</a>
+        <a href="contact.html" class="py-2 text-primary-700 hover:text-secondary-500 transition">Contact</a>
       </div>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section id="home" class="h-screen flex items-center justify-center bg-gradient-to-r from-blue-800 via-blue-600 to-blue-400 relative text-white">
-    <div class="absolute inset-0 bg-black bg-opacity-30"></div>
-    <div class="container mx-auto px-6 text-center relative z-10" data-aos="fade-up">
-      <img src="aqib-profile.jpg" alt="Aqib Ali" class="w-40 h-40 mx-auto mb-6 rounded-full border-4 border-white shadow-xl object-cover">
-      <h2 class="text-5xl font-extrabold mb-4 hero-text">Hi, I'm Aqib Ali</h2>
-      <p class="text-xl mb-6 max-w-xl mx-auto">A passionate <span class="text-yellow-300 font-bold">Full Stack Developer</span>, <span class="text-yellow-300 font-bold">Graphic Designer</span>, <span class="text-yellow-300 font-bold">WordPress Expert</span>, and <span class="text-yellow-300 font-bold">CV Writer</span> transforming ideas into digital experiences.</p>
-      <a href="about.html" class="inline-block mt-4 px-8 py-3 bg-white text-primary font-bold rounded-full shadow-lg hover:bg-secondary hover:text-white transition">Discover More</a>
-    </div>
-  </section>
-
-  <!-- What Can I Do Section -->
-  <section class="py-24 bg-white text-center" data-aos="fade-up">
-    <h3 class="text-4xl font-bold text-primary mb-12">What Can I Do</h3>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto px-4">
-      <div class="glass p-8 shadow-lg hover:shadow-2xl transition" data-aos="zoom-in" data-aos-delay="100">
-        <div class="text-5xl mb-4">💻</div>
-        <h4 class="text-xl font-semibold mb-2">Full Stack Development</h4>
-        <p>Modern web apps using MERN stack, API integration & performance optimization.</p>
+  <section id="home" class="min-h-screen flex items-center justify-center pt-20 px-6 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-blue-800 via-blue-600 to-blue-400 opacity-90"></div>
+    <div class="max-w-7xl mx-auto text-center relative z-10" data-aos="fade-up">
+      <div class="floating mb-10 hero-glow">
+        <img src="aqib-profile.jpg" alt="Aqib Ali" 
+             class="w-40 h-40 mx-auto rounded-full border-4 border-white shadow-2xl object-cover gradient-border">
       </div>
-      <div class="glass p-8 shadow-lg hover:shadow-2xl transition" data-aos="zoom-in" data-aos-delay="200">
-        <div class="text-5xl mb-4">🎨</div>
-        <h4 class="text-xl font-semibold mb-2">Graphic Design</h4>
-        <p>Creative visuals, posters, and branding that stand out and deliver messages clearly.</p>
-      </div>
-      <div class="glass p-8 shadow-lg hover:shadow-2xl transition" data-aos="zoom-in" data-aos-delay="300">
-        <div class="text-5xl mb-4">🔧</div>
-        <h4 class="text-xl font-semibold mb-2">WordPress Expert</h4>
-        <p>Professional websites with themes, plugins, speed & SEO enhancements.</p>
-      </div>
-      <div class="glass p-8 shadow-lg hover:shadow-2xl transition" data-aos="zoom-in" data-aos-delay="400">
-        <div class="text-5xl mb-4">💡</div>
-        <h4 class="text-xl font-semibold mb-2">Programming</h4>
-        <p>Advanced coding in Python, Java, and C++ for reliable backend logic.</p>
-      </div>
-      <div class="glass p-8 shadow-lg hover:shadow-2xl transition" data-aos="zoom-in" data-aos-delay="500">
-        <div class="text-5xl mb-4">📄</div>
-        <h4 class="text-xl font-semibold mb-2">CV Writing</h4>
-        <p>Creating high-converting CVs and LinkedIn profiles tailored to job success.</p>
-      </div>
-      <div class="glass p-8 shadow-lg hover:shadow-2xl transition" data-aos="zoom-in" data-aos-delay="600">
-        <div class="text-5xl mb-4">🎬</div>
-        <h4 class="text-xl font-semibold mb-2">Video Editing</h4>
-        <p>High-quality, engaging video content using Adobe Premiere & other tools.</p>
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-6">
+        Hi, I'm 
+        <span class="bg-gradient-to-r from-amber-300 via-rose-400 to-fuchsia-500 text-transparent bg-clip-text">
+          Aqib Ali
+        </span>
+      </h1>
+      
+      
+      <p class="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto">
+        A passionate <span class="font-bold text-yellow-300">Full Stack Developer</span>, 
+        <span class="font-bold text-yellow-300">Graphic Designer</span>, 
+        <span class="font-bold text-yellow-300">WordPress Expert</span>, and 
+        <span class="font-bold text-yellow-300">CV Writer</span> transforming ideas into digital experiences.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="about.html" 
+           class="btn-hover px-8 py-3 bg-white text-primary-700 font-bold rounded-full shadow-lg hover:bg-secondary-500 hover:text-white transition-all duration-300 bg-gradient-to-r from-white to-gray-100">
+          Discover More
+        </a>
+        <a href="contact.html" 
+           class="btn-hover px-8 py-3 border-2 border-white text-white font-bold rounded-full hover:bg-white/20 transition-all duration-300">
+          Get In Touch
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- What People Say -->
-  <section class="py-24 bg-gradient-to-r from-white via-blue-50 to-white text-center" data-aos="fade-up">
-    <h3 class="text-4xl font-bold text-primary mb-12">What People Say About Me</h3>
-    <div class="flex flex-wrap justify-center gap-10 max-w-6xl mx-auto px-4">
-      <div class="glass p-6 max-w-md rounded-xl shadow-lg text-left" data-aos="fade-up" data-aos-delay="100">
-        <div class="flex items-center gap-4 mb-4">
-          <img src="dr-mudasirs.jpg" alt="Dr. Mudasir Memon" class="w-16 h-16 rounded-full object-cover" />
-          <div>
-            <h4 class="text-lg font-bold">Dr. Mudasir Memon</h4>
-            <p class="text-sm text-gray-600">CEO</p>
-          </div>
+  <!-- Services Section -->
+  <section id="services" class="py-24 bg-white section-transition">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 font-space" data-aos="fade-up">
+        What Can I Do
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Service 1 -->
+        <div class="glass card-3d p-8 rounded-xl shadow-lg hover:shadow-xl" data-aos="zoom-in" data-aos-delay="100">
+          <div class="text-5xl mb-4 text-secondary-500">💻</div>
+          <h3 class="text-xl font-semibold mb-4">Full Stack Development</h3>
+          <p class="text-primary-600">Modern web apps using MERN stack, API integration & performance optimization.</p>
         </div>
-        <p class="text-gray-700">“Aqib is an incredibly talented developer and creative designer. His dedication and quality of work consistently exceed expectations.”</p>
-      </div>
-      <div class="glass p-6 max-w-md rounded-xl shadow-lg text-left" data-aos="fade-up" data-aos-delay="200">
-        <div class="flex items-center gap-4 mb-4">
-          <img src="dr-mar.jpg" alt="Dr. Mar Augustin" class="w-16 h-16 rounded-full object-cover" />
-          <div>
-            <h4 class="text-lg font-bold">Dr. Mar Augustin</h4>
-            <p class="text-sm text-gray-600">Instructor</p>
-          </div>
+        
+        <!-- Service 2 -->
+        <div class="glass card-3d p-8 rounded-xl shadow-lg hover:shadow-xl" data-aos="zoom-in" data-aos-delay="200">
+          <div class="text-5xl mb-4 text-accent-500">🎨</div>
+          <h3 class="text-xl font-semibold mb-4">Graphic Design</h3>
+          <p class="text-primary-600">Creative visuals, posters, and branding that stand out and deliver messages clearly.</p>
         </div>
-        <p class="text-gray-700">“He combines technical skills with excellent communication and professionalism. Highly recommended!”</p>
+        
+        <!-- Service 3 -->
+        <div class="glass card-3d p-8 rounded-xl shadow-lg hover:shadow-xl" data-aos="zoom-in" data-aos-delay="300">
+          <div class="text-5xl mb-4 text-secondary-500">🔧</div>
+          <h3 class="text-xl font-semibold mb-4">WordPress Expert</h3>
+          <p class="text-primary-600">Professional websites with themes, plugins, speed & SEO enhancements.</p>
+        </div>
+        
+        <!-- Service 4 -->
+        <div class="glass card-3d p-8 rounded-xl shadow-lg hover:shadow-xl" data-aos="zoom-in" data-aos-delay="400">
+          <div class="text-5xl mb-4 text-accent-500">💡</div>
+          <h3 class="text-xl font-semibold mb-4">Programming</h3>
+          <p class="text-primary-600">Advanced coding in Python, Java, and C++ for reliable backend logic.</p>
+        </div>
+        
+        <!-- Service 5 -->
+        <div class="glass card-3d p-8 rounded-xl shadow-lg hover:shadow-xl" data-aos="zoom-in" data-aos-delay="500">
+          <div class="text-5xl mb-4 text-secondary-500">📄</div>
+          <h3 class="text-xl font-semibold mb-4">CV Writing</h3>
+          <p class="text-primary-600">Creating high-converting CVs and LinkedIn profiles tailored to job success.</p>
+        </div>
+        
+        <!-- Service 6 -->
+        <div class="glass card-3d p-8 rounded-xl shadow-lg hover:shadow-xl" data-aos="zoom-in" data-aos-delay="600">
+          <div class="text-5xl mb-4 text-accent-500">🎬</div>
+          <h3 class="text-xl font-semibold mb-4">Video Editing</h3>
+          <p class="text-primary-600">High-quality, engaging video content using Adobe Premiere & other tools.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Hire Me -->
-  <section class="py-20 bg-gradient-to-r from-secondary to-accent text-white text-center">
-    <h3 class="text-3xl font-bold mb-4" data-aos="fade-up">Need a Professional?</h3>
-    <p class="text-lg mb-6" data-aos="fade-up" data-aos-delay="100">Let’s work together to bring your vision into reality. I'm open to freelance and long-term roles.</p>
-    <a href="contact.html" class="bg-white text-primary font-semibold px-8 py-3 rounded-full shadow hover:bg-accent hover:text-white transition">Hire Me</a>
+  <!-- Testimonials Section -->
+  <section class="py-24 bg-gradient-to-r from-primary-100 via-blue-50 to-primary-100 section-transition">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 font-space" data-aos="fade-up">
+        What People Say About Me
+      </h2>
+      <div class="flex flex-col md:flex-row justify-center gap-8">
+        <!-- Testimonial 1 -->
+        <div class="glass card-3d p-6 max-w-md rounded-xl shadow-lg" data-aos="fade-right" data-aos-delay="100">
+          <div class="flex items-center gap-4 mb-4">
+            <img src="dr-mudasirs.jpg" alt="Dr. Mudasir Memon" class="w-16 h-16 rounded-full object-cover border-2 border-secondary-500" />
+            <div>
+              <h4 class="text-lg font-bold text-primary-800">Dr. Mudasir Memon</h4>
+              <p class="text-sm text-primary-600">CEO</p>
+            </div>
+          </div>
+          <p class="text-primary-700">
+            "Aqib is an incredibly talented developer and creative designer. His dedication and quality of work consistently exceed expectations."
+          </p>
+        </div>
+        
+        <!-- Testimonial 2 -->
+        <div class="glass card-3d p-6 max-w-md rounded-xl shadow-lg" data-aos="fade-left" data-aos-delay="200">
+          <div class="flex items-center gap-4 mb-4">
+            <img src="dr-mar.jpg" alt="Dr. Mar Augustin" class="w-16 h-16 rounded-full object-cover border-2 border-accent-500" />
+            <div>
+              <h4 class="text-lg font-bold text-primary-800">Dr. Mar Augustin</h4>
+              <p class="text-sm text-primary-600">Instructor</p>
+            </div>
+          </div>
+          <p class="text-primary-700">
+            "He combines technical skills with excellent communication and professionalism. Highly recommended!"
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-gradient-to-r from-secondary-500 to-accent-500 text-white text-center section-transition">
+    <div class="max-w-4xl mx-auto px-6" data-aos="zoom-in">
+      <h3 class="text-3xl md:text-4xl font-bold mb-6 font-space">Need a Professional?</h3>
+      <p class="text-xl mb-8 max-w-2xl mx-auto">
+        Let's work together to bring your vision into reality. I'm open to freelance and long-term roles.
+      </p>
+      <a href="contact.html" 
+         class="btn-hover inline-block bg-white text-primary-700 font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-primary-800 hover:text-white transition-all duration-300 bg-gradient-to-r from-white to-gray-100">
+        Hire Me
+      </a>
+    </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-white py-6 text-center text-sm text-gray-600">
-    <p class="mb-2">&copy; 2025 Aqib Ali. All rights reserved.</p>
-    <div class="flex justify-center space-x-4 text-lg">
-      <a href="https://www.linkedin.com/in/aqib-ali-683330247" target="_blank" class="hover:text-secondary">
-        <i class="fab fa-linkedin"></i> LinkedIn
-      </a>
-      <a href="https://www.facebook.com/share/15JutvMF9w/" target="_blank" class="hover:text-secondary">
-        <i class="fab fa-facebook"></i> Facebook
-      </a>
-      <a href="https://www.instagram.com/peaceful_heart66" target="_blank" class="hover:text-secondary">
-        <i class="fab fa-instagram"></i> Instagram
-      </a>
-      <a href="https://wa.me/qr/XEEE7HJORDPKJ1" target="_blank" class="hover:text-secondary">
-        <i class="fab fa-whatsapp"></i> WhatsApp
-      </a>
+  <footer class="bg-primary-900 text-white py-12 section-transition">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-8 md:mb-0">
+          <h2 class="text-2xl font-bold mb-4 font-space">Aqib Ali</h2>
+          <p class="text-primary-300 max-w-md">
+            Computer Science professional with expertise in software development, AI, and web technologies.
+          </p>
+        </div>
+        <div class="flex space-x-6 mb-8 md:mb-0">
+          <a href="https://www.instagram.com/peaceful_heart66?igsh=am01cno0eHk2N29j" target="_blank" rel="noopener noreferrer" 
+             class="social-icon bg-white text-primary-900 rounded-full p-3 text-lg hover:bg-gradient-to-br hover:from-pink-500 hover:to-yellow-500 hover:text-white transition transform hover:-translate-y-1" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/aqib-ali-19b4a623b" target="_blank" rel="noopener noreferrer" 
+             class="social-icon bg-white text-primary-900 rounded-full p-3 text-lg hover:bg-gradient-to-br hover:from-blue-500 hover:to-blue-700 hover:text-white transition transform hover:-translate-y-1" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" 
+             class="social-icon bg-white text-primary-900 rounded-full p-3 text-lg hover:bg-gradient-to-br hover:from-blue-600 hover:to-blue-800 hover:text-white transition transform hover:-translate-y-1" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://wa.me/yourphonenumber" target="_blank" rel="noopener noreferrer" 
+             class="social-icon bg-white text-primary-900 rounded-full p-3 text-lg hover:bg-gradient-to-br hover:from-green-500 hover:to-green-600 hover:text-white transition transform hover:-translate-y-1" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+      <div class="border-t border-primary-800 mt-8 pt-8 text-center text-primary-400 text-sm">
+        <p>© 2025 Aqib Ali. All rights reserved.</p>
+      </div>
     </div>
   </footer>
 
-  <!-- FontAwesome -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <!-- GSAP for Advanced Animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
 
-  <!-- AOS Animation -->
+  <!-- AOS Animation Script -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>AOS.init();</script>
+  
+  <!-- Font Awesome -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
 
-  <!-- Hamburger Script -->
+  <!-- Main Script -->
   <script>
-    const toggleBtn = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
+    // Initialize AOS animations
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: 'ease-out-quart'
+    });
 
-    toggleBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('-translate-x-full');
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      menuToggle.classList.toggle('hamburger-active');
+    });
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuToggle.classList.remove('hamburger-active');
+      });
+    });
+
+    // Particle network animation
+    const particleNetwork = document.getElementById('particle-network');
+    const particleCount = 80;
+    
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+      
+      // Random size between 1px and 4px
+      const size = Math.random() * 3 + 1;
+      particle.style.width = `${size}px`;
+      particle.style.height = `${size}px`;
+      
+      // Random position
+      particle.style.left = `${Math.random() * 100}%`;
+      particle.style.top = `${Math.random() * 100}%`;
+      
+      // Random opacity
+      particle.style.opacity = Math.random() * 0.6 + 0.2;
+      
+      // Random animation
+      const duration = Math.random() * 20 + 10;
+      const delay = Math.random() * 5;
+      particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
+      
+      particleNetwork.appendChild(particle);
+    }
+
+    // GSAP Scroll Animations
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Animate sections on scroll
+    gsap.utils.toArray('.section-transition').forEach(section => {
+      gsap.from(section, {
+        scrollTrigger: {
+          trigger: section,
+          start: "top 80%",
+          toggleActions: "play none none none"
+        },
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        ease: "power3.out"
+      });
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          gsap.to(window, {
+            duration: 1,
+            scrollTo: {
+              y: targetElement,
+              offsetY: 80
+            },
+            ease: "power3.inOut"
+          });
+        }
+      });
+    });
+
+    // Cursor follower effect (optional)
+    document.addEventListener('mousemove', (e) => {
+      const cursorFollower = document.createElement('div');
+      cursorFollower.classList.add('cursor-follower');
+      cursorFollower.style.left = `${e.clientX}px`;
+      cursorFollower.style.top = `${e.clientY}px`;
+      document.body.appendChild(cursorFollower);
+      
+      setTimeout(() => {
+        cursorFollower.remove();
+      }, 1000);
+    });
+
+    // Dynamic background color change on scroll
+    ScrollTrigger.create({
+      trigger: "body",
+      start: "top top",
+      end: "max",
+      onUpdate: (self) => {
+        const scrollPercent = self.progress * 100;
+        document.body.style.background = `linear-gradient(${
+          135 + scrollPercent * 0.2
+        }deg, #f8fafc 0%, #f1f5f9 ${100 - scrollPercent}%, #e0f2fe 100%)`;
+      }
     });
   </script>
-
 </body>
 </html>
