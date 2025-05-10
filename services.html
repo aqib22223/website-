@@ -2,173 +2,1220 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Services | Aqib Ali</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Aqib Ali's Premium Services - Full Stack Development, WordPress, Graphic Design, CV Writing & More">
+  <meta name="keywords" content="Aqib Ali, services, web development, WordPress, graphic design, CV writing">
+  <title>Premium Services | Aqib Ali - Digital Creator</title>
 
-  <!-- Tailwind CSS -->
+  <!-- Preload Critical Resources -->
+  <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+  <link rel="preload" href="https://unpkg.com/aos@2.3.4/dist/aos.css" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" as="style">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" as="script">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js" as="script">
+
+  <!-- Tailwind CSS with Extended Config -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- AOS Animation -->
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <!-- Font Awesome -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            pop: ['Poppins', 'sans-serif'],
+            space: ['Space Grotesk', 'sans-serif']
+          },
+          colors: {
+            primary: {
+              50: '#f8fafc',
+              100: '#f1f5f9',
+              200: '#e2e8f0',
+              300: '#cbd5e1',
+              400: '#94a3b8',
+              500: '#64748b',
+              600: '#475569',
+              700: '#334155',
+              800: '#1e293b',
+              900: '#0f172a'
+            },
+            secondary: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              300: '#7dd3fc',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e'
+            },
+            accent: {
+              50: '#f5f3ff',
+              100: '#ede9fe',
+              200: '#ddd6fe',
+              300: '#c4b5fd',
+              400: '#a78bfa',
+              500: '#8b5cf6',
+              600: '#7c3aed',
+              700: '#6d28d9',
+              800: '#5b21b6',
+              900: '#4c1d95'
+            },
+            electric: {
+              400: '#00f5d4',
+              500: '#00bbf9',
+              600: '#9b5de5'
+            },
+            premium: {
+              gold: '#FFD700',
+              platinum: '#E5E4E2',
+              diamond: '#B9F2FF',
+              ruby: '#E0115F',
+              sapphire: '#0F52BA',
+              emerald: '#50C878',
+              onyx: '#0F0F0F'
+            }
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'gradient-x': 'gradient-x 15s ease infinite',
+            'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'spin-slow': 'spin 8s linear infinite',
+            'text-gradient': 'text-gradient 8s ease infinite',
+            'border-pulse': 'border-pulse 4s ease infinite',
+            'neon-glow': 'neon-glow 2s ease-in-out infinite alternate',
+            'particle-float': 'particle-float 15s linear infinite',
+            'holographic-shine': 'holographic-shine 8s linear infinite',
+            'metallic-shimmer': 'metallic-shimmer 3s ease infinite',
+            'premium-sparkle': 'premium-sparkle 5s ease infinite',
+            'service-card-float': 'service-card-float 8s ease-in-out infinite'
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-20px)' },
+            },
+            'gradient-x': {
+              '0%, 100%': { 'background-position': '0% 50%' },
+              '50%': { 'background-position': '100% 50%' },
+            },
+            'text-gradient': {
+              '0%, 100%': { 'background-position': 'left center' },
+              '50%': { 'background-position': 'right center' },
+            },
+            'border-pulse': {
+              '0%, 100%': { 'border-color': 'rgba(14, 165, 233, 0.5)' },
+              '50%': { 'border-color': 'rgba(155, 93, 229, 0.5)' },
+            },
+            'neon-glow': {
+              '0%': { 
+                'text-shadow': '0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--color-secondary), 0 0 20px var(--color-secondary)',
+                'opacity': '1'
+              },
+              '100%': { 
+                'text-shadow': '0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--color-accent), 0 0 40px var(--color-accent)',
+                'opacity': '0.9'
+              }
+            },
+            'particle-float': {
+              '0%': { transform: 'translateY(0) rotate(0deg)' },
+              '100%': { transform: 'translateY(-100vh) rotate(360deg)' }
+            },
+            'holographic-shine': {
+              '0%': { 'background-position': '0% 50%' },
+              '100%': { 'background-position': '100% 50%' }
+            },
+            'metallic-shimmer': {
+              '0%, 100%': { 
+                'background-color': 'var(--color-premium-gold)',
+                'box-shadow': '0 0 10px var(--color-premium-gold)'
+              },
+              '50%': { 
+                'background-color': 'var(--color-premium-platinum)',
+                'box-shadow': '0 0 20px var(--color-premium-platinum)'
+              }
+            },
+            'premium-sparkle': {
+              '0%': { 'opacity': '0.3', 'transform': 'scale(0.8)' },
+              '50%': { 'opacity': '1', 'transform': 'scale(1.1)' },
+              '100%': { 'opacity': '0.3', 'transform': 'scale(0.8)' }
+            },
+            'service-card-float': {
+              '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+              '50%': { transform: 'translateY(-15px) rotate(2deg)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
 
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Custom Styles -->
   <style>
+    :root {
+      --color-primary: #0f172a;
+      --color-secondary: #0ea5e9;
+      --color-accent: #8b5cf6;
+      --color-electric: #00f5d4;
+      --color-premium-gold: #FFD700;
+      --color-premium-platinum: #E5E4E2;
+      --color-premium-diamond: #B9F2FF;
+      --color-premium-ruby: #E0115F;
+      --color-premium-sapphire: #0F52BA;
+      --color-premium-emerald: #50C878;
+      --color-premium-onyx: #0F0F0F;
+    }
+
+    /* Smooth scrolling */
     html {
       scroll-behavior: smooth;
     }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #0f172a, #1e293b, #334155);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
-      color: #e2e8f0;
+    /* Premium Particle Background */
+    .premium-particle-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      background: linear-gradient(135deg, var(--color-premium-onyx) 0%, var(--color-primary-900) 100%);
+      overflow: hidden;
     }
 
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    .premium-particle {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(1px);
+      animation: particle-float linear infinite;
     }
 
-    .nav-link:hover {
-      color: #38bdf8;
-      transform: scale(1.05);
-      transition: all 0.3s ease-in-out;
+    /* Glass Morphism Effect */
+    .premium-glass {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      box-shadow: 0 8px 32px 0 rgba(14, 165, 233, 0.1);
     }
 
-    .service-card {
-      background: #1e293bcc;
-      backdrop-filter: blur(12px);
-      border: 1px solid #475569;
-      transition: all 0.3s ease;
+    .premium-glass:hover {
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px 0 rgba(14, 165, 233, 0.3);
+      transform: translateY(-5px);
     }
 
-    .service-card:hover {
-      transform: scale(1.03);
-      box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+    /* Premium Gradient Text */
+    .premium-gradient-text {
+      background: linear-gradient(45deg, 
+        var(--color-premium-gold), 
+        var(--color-premium-diamond), 
+        var(--color-premium-emerald),
+        var(--color-premium-sapphire));
+      background-size: 300% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: text-gradient 8s ease infinite;
     }
 
-    .rotate-emoji {
-      display: inline-block;
-      animation: rotate 6s linear infinite;
+    /* Premium Navigation Link Animation */
+    .premium-nav-link {
+      position: relative;
+      overflow: hidden;
     }
 
-    @keyframes rotate {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+    .premium-nav-link::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: 0;
+      left: -100%;
+      background: linear-gradient(90deg, transparent, var(--color-premium-gold), transparent);
+      transition: all 0.4s ease;
     }
 
-    .icon-box:hover {
-      transform: rotate(5deg);
-      transition: transform 0.4s;
+    .premium-nav-link:hover::before {
+      left: 100%;
+    }
+
+    /* Premium 3D Card Effect */
+    .premium-card-3d {
+      transform-style: preserve-3d;
+      perspective: 1000px;
+      transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .premium-card-3d:hover {
+      transform: translateY(-10px) rotateX(5deg) scale(1.02);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Premium Floating Animation */
+    .premium-floating {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    /* Premium Service Card */
+    .premium-service-card {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      animation: service-card-float 8s ease-in-out infinite;
+    }
+
+    .premium-service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.2);
+      animation: none;
+    }
+
+    .premium-service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, 
+        var(--color-premium-gold), 
+        var(--color-premium-emerald));
+    }
+
+    /* Premium Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(var(--color-premium-gold), var(--color-premium-emerald));
+      border-radius: 10px;
+      transition: all 0.3s;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(var(--color-premium-sapphire), var(--color-premium-diamond));
+    }
+
+    /* Premium Hamburger Animation */
+    .premium-hamburger path {
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .premium-hamburger-active .premium-hamburger-top {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .premium-hamburger-active .premium-hamburger-middle {
+      opacity: 0;
+    }
+
+    .premium-hamburger-active .premium-hamburger-bottom {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Premium Hero Glow Effect */
+    .premium-hero-glow {
+      filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.4));
+    }
+
+    /* Premium Animated Gradient Border */
+    .premium-gradient-border {
+      position: relative;
+      border-radius: 1rem;
+    }
+
+    .premium-gradient-border::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      z-index: -1;
+      border-radius: 1rem;
+      background: linear-gradient(45deg, 
+        var(--color-premium-gold), 
+        var(--color-premium-diamond), 
+        var(--color-premium-emerald),
+        var(--color-premium-sapphire));
+      background-size: 300% 300%;
+      animation: gradient-x 8s ease infinite;
+    }
+
+    /* Premium Button Hover Effect */
+    .premium-btn-hover {
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      background-size: 200% auto;
+    }
+
+    .premium-btn-hover:hover {
+      background-position: right center;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Premium Section Transition */
+    .premium-section-transition {
+      transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Premium Focus Styles */
+    *:focus-visible {
+      outline: 2px solid var(--color-premium-gold);
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+
+    /* Premium Neon Text Effect */
+    .premium-neon-text {
+      animation: neon-glow 2s ease-in-out infinite alternate;
+    }
+
+    /* Premium Holographic Effect */
+    .premium-holographic {
+      background: linear-gradient(135deg, 
+        rgba(255, 215, 0, 0.1) 0%, 
+        rgba(185, 242, 255, 0.1) 50%, 
+        rgba(80, 200, 120, 0.1) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .premium-holographic::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0) 45%,
+        rgba(255, 255, 255, 0.7) 50%,
+        rgba(255, 255, 255, 0) 55%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: rotate(30deg);
+      animation: shine 3s infinite;
+    }
+
+    @keyframes shine {
+      0% { left: -100%; }
+      20% { left: 100%; }
+      100% { left: 100%; }
+    }
+
+    /* Premium Metallic Badge */
+    .premium-badge {
+      background: linear-gradient(135deg, 
+        var(--color-premium-gold), 
+        var(--color-premium-platinum));
+      color: var(--color-primary-800);
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      animation: metallic-shimmer 3s ease infinite;
+    }
+
+    /* Premium Sparkle Effect */
+    .premium-sparkle {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background: white;
+      border-radius: 50%;
+      filter: blur(1px);
+      animation: premium-sparkle 5s ease infinite;
+      pointer-events: none;
+    }
+
+    /* Premium Service Icon */
+    .premium-service-icon {
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      background: linear-gradient(135deg, 
+        rgba(255, 215, 0, 0.2), 
+        rgba(185, 242, 255, 0.2));
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      transition: all 0.4s ease;
+    }
+
+    .premium-service-icon i {
+      font-size: 2.5rem;
+      background: linear-gradient(45deg, 
+        var(--color-premium-gold), 
+        var(--color-premium-emerald));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* Premium Process Step */
+    .premium-process-step {
+      position: relative;
+      padding-left: 60px;
+      margin-bottom: 30px;
+    }
+
+    .premium-process-step-number {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, 
+        var(--color-premium-gold), 
+        var(--color-premium-emerald));
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    /* Premium Responsive Adjustments */
+    @media (max-width: 768px) {
+      .premium-service-icon {
+        width: 60px;
+        height: 60px;
+      }
+      .premium-service-icon i {
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
-<body class="text-gray-200">
 
-  <!-- Navbar -->
-  <header class="fixed top-0 left-0 w-full bg-gray-900 shadow-md z-50">
+<body class="bg-gradient-to-br from-primary-50 via-blue-50 to-primary-100 font-pop text-primary-900 antialiased">
+
+  <!-- Premium Particle Background -->
+  <div id="premium-particle-network" class="premium-particle-bg"></div>
+
+  <!-- Premium Navigation -->
+  <header class="fixed top-0 left-0 w-full bg-white/95 backdrop-blur-lg shadow-sm z-50 transition-all duration-300 hover:bg-white/97">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-      <h1 class="text-xl font-bold text-cyan-400">Aqib Ali</h1>
-      <nav class="space-x-4 sm:space-x-6 font-medium text-gray-300 text-sm sm:text-base">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="about.html" class="nav-link">About Me</a>
-        <a href="services.html" class="nav-link">My Services</a>
-        <a href="skills.html" class="nav-link">My Skills</a>
-        <a href="contact.html" class="nav-link">Contact Me</a>
+      <!-- Logo and Social Icons -->
+      <div class="flex items-center space-x-4">
+        <a href="index.html" class="text-2xl font-bold text-primary-800 font-space hover:text-secondary-500 transition">
+          Aqib Ali
+        </a>
+        
+        <!-- Social Icons -->
+        <div class="hidden md:flex space-x-2">
+          <a href="https://www.instagram.com/peaceful_heart66?igsh=am01cno0eHk2N29j" target="_blank" rel="noopener noreferrer" 
+             class="social-icon bg-primary-100 text-primary-700 rounded-full p-2 text-sm hover:bg-gradient-to-br hover:from-pink-500 hover:to-yellow-500 hover:text-white transition transform hover:-translate-y-1" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/aqib-ali-19b4a623b" target="_blank" rel="noopener noreferrer" 
+             class="social-icon bg-primary-100 text-primary-700 rounded-full p-2 text-sm hover:bg-gradient-to-br hover:from-blue-500 hover:to-blue-700 hover:text-white transition transform hover:-translate-y-1" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" 
+             class="social-icon bg-primary-100 text-primary-700 rounded-full p-2 text-sm hover:bg-gradient-to-br hover:from-blue-600 hover:to-blue-800 hover:text-white transition transform hover:-translate-y-1" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://wa.me/yourphonenumber" target="_blank" rel="noopener noreferrer" 
+             class="social-icon bg-primary-100 text-primary-700 rounded-full p-2 text-sm hover:bg-gradient-to-br hover:from-green-500 hover:to-green-600 hover:text-white transition transform hover:-translate-y-1" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex space-x-8">
+        <a href="index.html" class="premium-nav-link text-primary-700 hover:text-secondary-500 font-medium">Home</a>
+        <a href="about.html" class="premium-nav-link text-primary-700 hover:text-secondary-500 font-medium">About</a>
+        <a href="skills.html" class="premium-nav-link text-primary-700 hover:text-secondary-500 font-medium">Skills</a>
+        <a href="contact.html" class="premium-nav-link text-primary-700 hover:text-secondary-500 font-medium">Contact</a>
       </nav>
+
+      <!-- Mobile Menu Button -->
+      <button id="premium-menu-toggle" class="md:hidden focus:outline-none group" aria-label="Toggle menu">
+        <svg class="w-8 h-8 text-primary-700 group-hover:text-secondary-500 transition premium-hamburger" viewBox="0 0 24 24">
+          <path id="premium-hamburger-top" class="premium-hamburger-top" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 6h16" />
+          <path id="premium-hamburger-middle" class="premium-hamburger-middle" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 12h16" />
+          <path id="premium-hamburger-bottom" class="premium-hamburger-bottom" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="premium-mobile-menu" class="md:hidden hidden bg-white/97 backdrop-blur-lg px-6 pb-4 transition-all duration-300 transform origin-top">
+      <div class="flex flex-col space-y-4 py-4">
+        <a href="index.html" class="py-2 text-primary-700 hover:text-secondary-500 border-b border-gray-100 transition">Home</a>
+        <a href="about.html" class="py-2 text-primary-700 hover:text-secondary-500 border-b border-gray-100 transition">About</a>
+        <a href="skills.html" class="py-2 text-primary-700 hover:text-secondary-500 border-b border-gray-100 transition">Skills</a>
+        <a href="contact.html" class="py-2 text-primary-700 hover:text-secondary-500 transition">Contact</a>
+        
+        <!-- Social icons in mobile menu -->
+        <div class="flex space-x-4 pt-4 justify-center">
+          <a href="https://www.instagram.com/peaceful_heart66?igsh=am01cno0eHk2N29j" target="_blank" rel="noopener noreferrer" 
+             class="social-icon bg-primary-100 text-primary-700 rounded-full p-2 text-lg hover:bg-gradient-to-br hover:from-pink-500 hover:to-yellow-500 hover:text-white transition transform hover:-translate-y-1" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/aqib-ali-19b4a623b" target="_blank" rel="noopener noreferrer" 
+             class="social-icon bg-primary-100 text-primary-700 rounded-full p-2 text-lg hover:bg-gradient-to-br hover:from-blue-500 hover:to-blue-700 hover:text-white transition transform hover:-translate-y-1" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" 
+             class="social-icon bg-primary-100 text-primary-700 rounded-full p-2 text-lg hover:bg-gradient-to-br hover:from-blue-600 hover:to-blue-800 hover:text-white transition transform hover:-translate-y-1" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://wa.me/yourphonenumber" target="_blank" rel="noopener noreferrer" 
+             class="social-icon bg-primary-100 text-primary-700 rounded-full p-2 text-lg hover:bg-gradient-to-br hover:from-green-500 hover:to-green-600 hover:text-white transition transform hover:-translate-y-1" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
     </div>
   </header>
 
-  <!-- Services Section -->
-  <main class="pt-32 pb-20">
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-aos="fade-up">
-      <h2 class="text-4xl sm:text-5xl font-bold text-center text-cyan-400 mb-6 animate-pulse">My Services</h2>
-      <p class="text-center text-lg sm:text-xl max-w-3xl mx-auto mb-12 text-gray-300">
-        I offer a wide range of tech and creative services to help you grow online and stand out professionally.
+  <!-- Premium Hero Section -->
+  <section class="min-h-screen flex items-center justify-center pt-20 px-6 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-premium-sapphire to-premium-emerald opacity-95"></div>
+    <div class="max-w-7xl mx-auto text-center relative z-10 py-20" data-aos="fade-up">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 premium-neon-text">
+        My <span class="premium-gradient-text">Services</span>
+      </h1>
+      <p class="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
+        Premium digital solutions crafted with expertise and passion to elevate your online presence
       </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="#services" 
+           class="premium-btn-hover px-8 py-3 bg-white text-primary-700 font-bold rounded-full shadow-lg hover:bg-secondary-500 hover:text-white transition-all duration-300 bg-gradient-to-r from-white to-gray-100">
+          Explore Services
+        </a>
+        <a href="contact.html" 
+           class="premium-btn-hover px-8 py-3 border-2 border-white text-white font-bold rounded-full hover:bg-white/10 transition-all duration-300">
+          Get Started
+        </a>
+      </div>
+    </div>
+  </section>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Service Cards -->
-        <div class="service-card p-6 rounded-2xl shadow-xl" data-aos="zoom-in">
-          <h3 class="text-2xl font-semibold mb-4 text-cyan-300"><span class="rotate-emoji">💻</span> Web Development</h3>
-          <ul class="space-y-3 text-gray-300">
-            <li><i class="fas fa-globe text-blue-400"></i> Build responsive websites</li>
-            <li><i class="fas fa-laptop-code text-teal-400"></i> Add interactive features</li>
-            <li><i class="fas fa-mobile-alt text-indigo-400"></i> Mobile-friendly design</li>
+  <!-- Premium Services Section -->
+  <section id="services" class="py-24 bg-white premium-section-transition">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 font-space" data-aos="fade-up">
+        Premium <span class="premium-gradient-text">Digital Services</span>
+      </h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Full Stack Development -->
+        <div class="premium-service-card premium-glass p-8 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+          <div class="premium-service-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-center premium-gradient-text">Full Stack Development</h3>
+          <p class="text-primary-600 mb-6 text-center">
+            Complete web applications with modern technologies and seamless user experiences
+          </p>
+          <ul class="space-y-3 mb-6">
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-premium-emerald mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Custom MERN stack applications</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-premium-emerald mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>API development & integration</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-premium-emerald mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Database design & optimization</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-premium-emerald mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Performance optimization</span>
+            </li>
           </ul>
+          <div class="text-center">
+            <a href="contact.html" class="premium-btn-hover inline-block bg-gradient-to-r from-premium-gold to-premium-emerald text-white font-semibold px-6 py-2 rounded-full shadow hover:from-premium-sapphire hover:to-premium-emerald transition-all duration-300">
+              Get Started
+            </a>
+          </div>
         </div>
-
-        <div class="service-card p-6 rounded-2xl shadow-xl" data-aos="zoom-in">
-          <h3 class="text-2xl font-semibold mb-4 text-teal-300"><span class="rotate-emoji">🌐</span> WordPress Services</h3>
-          <ul class="space-y-3 text-gray-300">
-            <li><i class="fab fa-wordpress text-blue-400"></i> Custom WordPress sites</li>
-            <li><i class="fas fa-plug text-gray-400"></i> Themes & plugins setup</li>
-            <li><i class="fas fa-rocket text-green-400"></i> Speed & optimization</li>
+        
+        <!-- WordPress Development -->
+        <div class="premium-service-card premium-glass p-8 rounded-xl" data-aos="fade-up" data-aos-delay="200">
+          <div class="premium-service-icon">
+            <i class="fab fa-wordpress"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-center premium-gradient-text">WordPress Development</h3>
+          <p class="text-primary-600 mb-6 text-center">
+            Professional WordPress solutions tailored to your business needs
+          </p>
+          <ul class="space-y-3 mb-6">
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-premium-emerald mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Custom theme development</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-premium-emerald mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Plugin customization</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-premium-emerald mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>E-commerce solutions</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-premium-emerald mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Performance optimization</span>
+            </li>
           </ul>
+          <div class="text-center">
+            <a href="contact.html" class="premium-btn-hover inline-block bg-gradient-to-r from-premium-gold to-premium-emerald text-white font-semibold px-6 py-2 rounded-full shadow hover:from-premium-sapphire hover:to-premium-emerald transition-all duration-300">
+              Get Started
+            </a>
+          </div>
         </div>
-
-        <div class="service-card p-6 rounded-2xl shadow-xl" data-aos="zoom-in">
-          <h3 class="text-2xl font-semibold mb-4 text-purple-300"><span class="rotate-emoji">🎨</span> Graphic Design</h3>
-          <ul class="space-y-3 text-gray-300">
-            <li><i class="fas fa-paint-brush text-orange-400"></i> Logo & brand design</li>
-            <li><i class="fas fa-image text-green-400"></i> Social media graphics</li>
-            <li><i class="fas fa-bullhorn text-pink-400"></i> Marketing materials</li>
+        
+        <!-- Graphic Design -->
+        <div class="premium-service-card premium-glass p-8 rounded-xl" data-aos="fade-up" data-aos-delay="300">
+          <div class="premium-service-icon">
+            <i class="fas fa-paint-brush"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-center premium-gradient-text">Graphic Design</h3>
+          <p class="text-primary-600 mb-6 text-center">
+            Visually stunning designs that communicate your brand's message
+          </p>
+          <ul class="space-y-3 mb-6">
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-premium-emerald mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Logo & branding design</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-premium-emerald mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Social media graphics</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-premium-emerald mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Print materials</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-premium-emerald mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>UI/UX design</span>
+            </li>
           </ul>
+          <div class="text-center">
+            <a href="contact.html" class="premium-btn-hover inline-block bg-gradient-to-r from-premium-gold to-premium-emerald text-white font-semibold px-6 py-2 rounded-full shadow hover:from-premium-sapphire hover:to-premium-emerald transition-all duration-300">
+              Get Started
+            </a>
+          </div>
         </div>
-
-        <div class="service-card p-6 rounded-2xl shadow-xl" data-aos="zoom-in">
-          <h3 class="text-2xl font-semibold mb-4 text-yellow-300"><span class="rotate-emoji">🎬</span> Video Editing</h3>
-          <ul class="space-y-3 text-gray-300">
-            <li><i class="fas fa-video text-blue-400"></i> Edit social media videos</li>
-            <li><i class="fas fa-magic text-yellow-400"></i> Add effects & transitions</li>
-            <li><i class="fas fa-music text-red-400"></i> Enhance with music/sound</li>
+        
+        <!-- CV Writing -->
+        <div class="premium-service-card premium-glass p-8 rounded-xl" data-aos="fade-up" data-aos-delay="400">
+          <div class="premium-service-icon">
+            <i class="fas fa-file-alt"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-center premium-gradient-text">CV Writing</h3>
+          <p class="text-primary-600 mb-6 text-center">
+            Professionally crafted resumes that get you noticed by employers
+          </p>
+          <ul class="space-y-3 mb-6">
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-premium-emerald mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>ATS-friendly formatting</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-premium-emerald mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Industry-specific tailoring</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-premium-emerald mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Cover letter writing</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-premium-emerald mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>LinkedIn profile optimization</span>
+            </li>
           </ul>
+          <div class="text-center">
+            <a href="contact.html" class="premium-btn-hover inline-block bg-gradient-to-r from-premium-gold to-premium-emerald text-white font-semibold px-6 py-2 rounded-full shadow hover:from-premium-sapphire hover:to-premium-emerald transition-all duration-300">
+              Get Started
+            </a>
+          </div>
         </div>
-
-        <div class="service-card p-6 rounded-2xl shadow-xl" data-aos="zoom-in">
-          <h3 class="text-2xl font-semibold mb-4 text-pink-300"><span class="rotate-emoji">📄</span> CV & Resume Writing</h3>
-          <ul class="space-y-3 text-gray-300">
-            <li><i class="fas fa-file-alt text-blue-400"></i> Professional CVs</li>
-            <li><i class="fas fa-envelope text-indigo-400"></i> Cover letters</li>
-            <li><i class="fab fa-linkedin text-blue-300"></i> LinkedIn profiles</li>
+        
+        <!-- Video Editing -->
+        <div class="premium-service-card premium-glass p-8 rounded-xl" data-aos="fade-up" data-aos-delay="500">
+          <div class="premium-service-icon">
+            <i class="fas fa-video"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-center premium-gradient-text">Video Editing</h3>
+          <p class="text-primary-600 mb-6 text-center">
+            Engaging video content that captivates your audience
+          </p>
+          <ul class="space-y-3 mb-6">
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-premium-emerald mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Professional editing</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-premium-emerald mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Motion graphics</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-premium-emerald mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Color correction</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-premium-emerald mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Audio enhancement</span>
+            </li>
           </ul>
+          <div class="text-center">
+            <a href="contact.html" class="premium-btn-hover inline-block bg-gradient-to-r from-premium-gold to-premium-emerald text-white font-semibold px-6 py-2 rounded-full shadow hover:from-premium-sapphire hover:to-premium-emerald transition-all duration-300">
+              Get Started
+            </a>
+          </div>
         </div>
-
-        <div class="service-card p-6 rounded-2xl shadow-xl" data-aos="zoom-in">
-          <h3 class="text-2xl font-semibold mb-4 text-lime-300"><span class="rotate-emoji">🧠</span> Tech Consultation</h3>
-          <ul class="space-y-3 text-gray-300">
-            <li><i class="fas fa-chalkboard-teacher text-purple-400"></i> Project advice</li>
-            <li><i class="fas fa-lightbulb text-yellow-300"></i> Tech solutions</li>
-            <li><i class="fas fa-chart-line text-teal-400"></i> Business growth tips</li>
+        
+        <!-- AI/ML Development -->
+        <div class="premium-service-card premium-glass p-8 rounded-xl" data-aos="fade-up" data-aos-delay="600">
+          <div class="premium-service-icon">
+            <i class="fas fa-robot"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-center premium-gradient-text">AI/ML Development</h3>
+          <p class="text-primary-600 mb-6 text-center">
+            Intelligent solutions powered by artificial intelligence
+          </p>
+          <ul class="space-y-3 mb-6">
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-premium-emerald mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Predictive models</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-premium-emerald mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Natural language processing</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-premium-emerald mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Computer vision</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-premium-emerald mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Chatbot development</span>
+            </li>
           </ul>
+          <div class="text-center">
+            <a href="contact.html" class="premium-btn-hover inline-block bg-gradient-to-r from-premium-gold to-premium-emerald text-white font-semibold px-6 py-2 rounded-full shadow hover:from-premium-sapphire hover:to-premium-emerald transition-all duration-300">
+              Get Started
+            </a>
+          </div>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <!-- Footer -->
-  <footer class="text-center text-sm text-gray-300 py-8 mt-12 bg-gray-900">
-    <div class="flex justify-center space-x-6 text-xl mb-4">
-      <a href="https://www.instagram.com/peaceful_heart66?igsh=am01cno0eHk2N29j" target="_blank" class="hover:text-pink-500">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="https://www.linkedin.com/in/aqib-ali-683330247?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="hover:text-blue-400">
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="https://www.facebook.com/share/15JutvMF9w/" target="_blank" class="hover:text-blue-500">
-        <i class="fab fa-facebook"></i>
-      </a>
-      <a href="https://wa.me/qr/XEEE7HJORDPKJ1" target="_blank" class="hover:text-green-400">
-        <i class="fab fa-whatsapp"></i>
+  <!-- Premium Process Section -->
+  <section class="py-24 bg-gradient-to-r from-primary-100 via-blue-50 to-primary-100 premium-section-transition">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 font-space" data-aos="fade-up">
+        My <span class="premium-gradient-text">Process</span>
+      </h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Step 1 -->
+        <div class="premium-process-step" data-aos="fade-up" data-aos-delay="100">
+          <div class="premium-process-step-number">1</div>
+          <h3 class="text-xl font-bold mb-2">Discovery</h3>
+          <p class="text-primary-600">
+            We discuss your project requirements, goals, and vision to establish a clear direction.
+          </p>
+        </div>
+        
+        <!-- Step 2 -->
+        <div class="premium-process-step" data-aos="fade-up" data-aos-delay="200">
+          <div class="premium-process-step-number">2</div>
+          <h3 class="text-xl font-bold mb-2">Planning</h3>
+          <p class="text-primary-600">
+            I create a detailed project plan with milestones, timelines, and deliverables.
+          </p>
+        </div>
+        
+        <!-- Step 3 -->
+        <div class="premium-process-step" data-aos="fade-up" data-aos-delay="300">
+          <div class="premium-process-step-number">3</div>
+          <h3 class="text-xl font-bold mb-2">Execution</h3>
+          <p class="text-primary-600">
+            Your project comes to life with regular updates and opportunities for feedback.
+          </p>
+        </div>
+        
+        <!-- Step 4 -->
+        <div class="premium-process-step" data-aos="fade-up" data-aos-delay="400">
+          <div class="premium-process-step-number">4</div>
+          <h3 class="text-xl font-bold mb-2">Delivery</h3>
+          <p class="text-primary-600">
+            Final review, testing, and handover with documentation and support.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Premium Testimonials Section -->
+  <section class="py-24 bg-white premium-section-transition">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 font-space" data-aos="fade-up">
+        Client <span class="premium-gradient-text">Testimonials</span>
+      </h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Testimonial 1 -->
+        <div class="premium-glass p-6 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+          <div class="flex items-center gap-4 mb-4">
+            <img src="dr-mudasirs.jpg" alt="Dr. Mudasir Memon" class="w-16 h-16 rounded-full object-cover border-2 border-premium-gold" />
+            <div>
+              <h4 class="text-lg font-bold text-primary-800">Dr. Mudasir Memon</h4>
+              <p class="text-sm text-primary-600">CEO</p>
+            </div>
+          </div>
+          <p class="text-primary-700">
+            "Aqib delivered an exceptional WordPress website for our clinic. His attention to detail and technical expertise exceeded our expectations."
+          </p>
+          <div class="flex mt-4 text-premium-gold">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+        
+        <!-- Testimonial 2 -->
+        <div class="premium-glass p-6 rounded-xl" data-aos="fade-up" data-aos-delay="200">
+          <div class="flex items-center gap-4 mb-4">
+            <img src="dr-mar.jpg" alt="Dr. Mar Augustin" class="w-16 h-16 rounded-full object-cover border-2 border-premium-emerald" />
+            <div>
+              <h4 class="text-lg font-bold text-primary-800">Dr. Mar Augustin</h4>
+              <p class="text-sm text-primary-600">Instructor</p>
+            </div>
+          </div>
+          <p class="text-primary-700">
+            "The CV Aqib created for me helped land multiple interviews. His understanding of what employers look for is remarkable."
+          </p>
+          <div class="flex mt-4 text-premium-gold">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+        
+        <!-- Testimonial 3 -->
+        <div class="premium-glass p-6 rounded-xl" data-aos="fade-up" data-aos-delay="300">
+          <div class="flex items-center gap-4 mb-4">
+            <img src="client-3.jpg" alt="Sarah Johnson" class="w-16 h-16 rounded-full object-cover border-2 border-premium-sapphire" />
+            <div>
+              <h4 class="text-lg font-bold text-primary-800">Sarah Johnson</h4>
+              <p class="text-sm text-primary-600">Marketing Director</p>
+            </div>
+          </div>
+          <p class="text-primary-700">
+            "Our e-commerce site developed by Aqib has increased our sales by 40%. His technical skills and creative solutions are top-notch."
+          </p>
+          <div class="flex mt-4 text-premium-gold">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Premium CTA Section -->
+  <section class="py-20 bg-gradient-to-r from-premium-gold to-premium-emerald text-white text-center premium-section-transition">
+    <div class="max-w-4xl mx-auto px-6" data-aos="zoom-in">
+      <h3 class="text-3xl md:text-4xl font-bold mb-6 font-space">Ready to Elevate Your Digital Presence?</h3>
+      <p class="text-xl mb-8 max-w-2xl mx-auto">
+        Let's discuss how I can help bring your vision to life with premium digital solutions.
+      </p>
+      <a href="contact.html" 
+         class="premium-btn-hover inline-block bg-white text-primary-700 font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-primary-800 hover:text-white transition-all duration-300 bg-gradient-to-r from-white to-gray-100">
+        Get In Touch
       </a>
     </div>
-    <p>&copy; 2025 Aqib Ali. All rights reserved.</p>
+  </section>
+
+  <!-- Premium Footer -->
+  <footer class="bg-primary-900 text-white py-12 premium-section-transition">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-8 md:mb-0">
+          <h2 class="text-2xl font-bold mb-4 font-space">Aqib Ali</h2>
+          <p class="text-primary-300 max-w-md">
+            Transforming ideas into digital experiences through code, design, and innovation.
+          </p>
+        </div>
+        <div class="flex space-x-4">
+          <a href="https://www.instagram.com/peaceful_heart66?igsh=am01cno0eHk2N29j" target="_blank" rel="noopener noreferrer" 
+             class="social-icon bg-white text-primary-900 rounded-full p-3 text-lg hover:bg-gradient-to-br hover:from-pink-500 hover:to-yellow-500 hover:text-white transition transform hover:-translate-y-1" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/aqib-ali-19b4a623b" target="_blank" rel="noopener noreferrer" 
+             class="social-icon bg-white text-primary-900 rounded-full p-3 text-lg hover:bg-gradient-to-br hover:from-blue-500 hover:to-blue-700 hover:text-white transition transform hover:-translate-y-1" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" 
+             class="social-icon bg-white text-primary-900 rounded-full p-3 text-lg hover:bg-gradient-to-br hover:from-blue-600 hover:to-blue-800 hover:text-white transition transform hover:-translate-y-1" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://wa.me/yourphonenumber" target="_blank" rel="noopener noreferrer" 
+             class="social-icon bg-white text-primary-900 rounded-full p-3 text-lg hover:bg-gradient-to-br hover:from-green-500 hover:to-green-600 hover:text-white transition transform hover:-translate-y-1" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+      <div class="border-t border-primary-800 mt-8 pt-8 text-center text-primary-400 text-sm">
+        <p>© 2025 Aqib Ali. All rights reserved.</p>
+      </div>
+    </div>
   </footer>
 
-  <!-- AOS Init -->
+  <!-- GSAP for Advanced Animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+
+  <!-- AOS Animation Script -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>AOS.init();</script>
+  
+  <!-- Font Awesome -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+
+  <!-- Main Script -->
+  <script>
+    // Initialize AOS animations
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: 'ease-out-quart'
+    });
+
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('premium-menu-toggle');
+    const mobileMenu = document.getElementById('premium-mobile-menu');
+    
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      menuToggle.classList.toggle('premium-hamburger-active');
+    });
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('#premium-mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuToggle.classList.remove('premium-hamburger-active');
+      });
+    });
+
+    // Premium Particle Background Animation
+    const particleNetwork = document.getElementById('premium-particle-network');
+    const particleCount = 120;
+    
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('premium-particle');
+      
+      // Random size between 1px and 3px
+      const size = Math.random() * 2 + 1;
+      particle.style.width = `${size}px`;
+      particle.style.height = `${size}px`;
+      
+      // Random position
+      particle.style.left = `${Math.random() * 100}%`;
+      particle.style.top = `${Math.random() * 100}%`;
+      
+      // Random color from premium palette
+      const colors = [
+        'var(--color-premium-gold)',
+        'var(--color-premium-emerald)',
+        'var(--color-premium-sapphire)',
+        'var(--color-premium-diamond)'
+      ];
+      const randomColor = colors[Math.floor(Math.random() * colors.length)];
+      particle.style.background = randomColor;
+      
+      // Random opacity
+      particle.style.opacity = Math.random() * 0.6 + 0.2;
+      
+      // Random animation
+      const duration = Math.random() * 20 + 10;
+      const delay = Math.random() * 5;
+      particle.style.animation = `particle-float ${duration}s linear ${delay}s infinite`;
+      
+      particleNetwork.appendChild(particle);
+      
+      // Add sparkle effects
+      if (Math.random() > 0.7) {
+        const sparkle = document.createElement('div');
+        sparkle.classList.add('premium-sparkle');
+        sparkle.style.left = `${Math.random() * 100}%`;
+        sparkle.style.top = `${Math.random() * 100}%`;
+        sparkle.style.animationDelay = `${Math.random() * 5}s`;
+        particleNetwork.appendChild(sparkle);
+      }
+    }
+
+    // GSAP Scroll Animations
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Animate service cards on hover
+    document.querySelectorAll('.premium-service-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const angleX = (y - centerY) / 20;
+        const angleY = (centerX - x) / 20;
+        
+        gsap.to(card, {
+          rotateX: angleX,
+          rotateY: angleY,
+          duration: 0.5
+        });
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        gsap.to(card, {
+          rotateX: 0,
+          rotateY: 0,
+          duration: 0.5
+        });
+      });
+    });
+
+    // Animate sections on scroll
+    gsap.utils.toArray('.premium-section-transition').forEach(section => {
+      gsap.from(section, {
+        scrollTrigger: {
+          trigger: section,
+          start: "top 80%",
+          toggleActions: "play none none none"
+        },
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        ease: "power3.out"
+      });
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          gsap.to(window, {
+            duration: 1,
+            scrollTo: {
+              y: targetElement,
+              offsetY: 80
+            },
+            ease: "power3.inOut"
+          });
+        }
+      });
+    });
+
+    // Dynamic background color change on scroll
+    ScrollTrigger.create({
+      trigger: "body",
+      start: "top top",
+      end: "max",
+      onUpdate: (self) => {
+        const scrollPercent = self.progress * 100;
+        document.body.style.background = `linear-gradient(${
+          135 + scrollPercent * 0.2
+        }deg, var(--color-primary-50) 0%, var(--color-primary-100) ${100 - scrollPercent}%, var(--color-secondary-100) 100%)`;
+      }
+    });
+  </script>
 </body>
 </html>

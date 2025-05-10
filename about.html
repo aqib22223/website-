@@ -2,29 +2,43 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Aqib Ali - Computer Science professional with expertise in software development, AI, and web technologies. View my portfolio and credentials.">
-  <meta name="keywords" content="Aqib Ali, Computer Science, Software Developer, Web Developer, AI Specialist, Portfolio">
-  <meta name="author" content="Aqib Ali">
-  <meta property="og:title" content="Aqib Ali | Computer Science Professional">
-  <meta property="og:description" content="Portfolio of Aqib Ali - Computer Science student and tech enthusiast">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://yourportfolio.com">
-  <title>Aqib Ali | Computer Science Professional</title>
-  
-  <!-- Preload critical resources -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="About Aqib Ali - Full Stack Developer, Graphic Designer, WordPress Expert & CV Writer">
+  <meta name="keywords" content="Aqib Ali, about, portfolio, web developer, designer, WordPress, CV writer">
+  <title>About Aqib Ali | Digital Creator Portfolio</title>
+
+  <!-- Preload Critical Resources -->
   <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
   <link rel="preload" href="https://unpkg.com/aos@2.3.4/dist/aos.css" as="style">
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" as="script">
-  
-  <!-- Tailwind CSS -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" as="style">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" as="script">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js" as="script">
+
+  <!-- Tailwind CSS with Extended Config -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
+          fontFamily: {
+            pop: ['Poppins', 'sans-serif'],
+            space: ['Space Grotesk', 'sans-serif']
+          },
           colors: {
             primary: {
+              50: '#f8fafc',
+              100: '#f1f5f9',
+              200: '#e2e8f0',
+              300: '#cbd5e1',
+              400: '#94a3b8',
+              500: '#64748b',
+              600: '#475569',
+              700: '#334155',
+              800: '#1e293b',
+              900: '#0f172a'
+            },
+            secondary: {
               50: '#f0f9ff',
               100: '#e0f2fe',
               200: '#bae6fd',
@@ -34,9 +48,9 @@
               600: '#0284c7',
               700: '#0369a1',
               800: '#075985',
-              900: '#0c4a6e',
+              900: '#0c4a6e'
             },
-            secondary: {
+            accent: {
               50: '#f5f3ff',
               100: '#ede9fe',
               200: '#ddd6fe',
@@ -46,452 +60,1126 @@
               600: '#7c3aed',
               700: '#6d28d9',
               800: '#5b21b6',
-              900: '#4c1d95',
+              900: '#4c1d95'
             },
-            dark: {
-              900: '#0f172a',
-              800: '#1e293b',
-              700: '#334155',
-              600: '#475569',
+            electric: {
+              400: '#00f5d4',
+              500: '#00bbf9',
+              600: '#9b5de5'
+            },
+            premium: {
+              gold: '#FFD700',
+              platinum: '#E5E4E2',
+              diamond: '#B9F2FF',
+              ruby: '#E0115F',
+              sapphire: '#0F52BA',
+              emerald: '#50C878'
             }
           },
           animation: {
             'float': 'float 6s ease-in-out infinite',
-            'pulse-slow': 'pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'gradient-x': 'gradient-x 15s ease infinite',
+            'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'spin-slow': 'spin 8s linear infinite',
+            'text-gradient': 'text-gradient 8s ease infinite',
+            'border-pulse': 'border-pulse 4s ease infinite',
+            'neon-glow': 'neon-glow 2s ease-in-out infinite alternate',
+            'particle-float': 'particle-float 15s linear infinite',
+            'holographic-shine': 'holographic-shine 8s linear infinite',
+            'metallic-shimmer': 'metallic-shimmer 3s ease infinite',
+            'premium-sparkle': 'premium-sparkle 5s ease infinite'
           },
           keyframes: {
             float: {
               '0%, 100%': { transform: 'translateY(0)' },
               '50%': { transform: 'translateY(-20px)' },
+            },
+            'gradient-x': {
+              '0%, 100%': { 'background-position': '0% 50%' },
+              '50%': { 'background-position': '100% 50%' },
+            },
+            'text-gradient': {
+              '0%, 100%': { 'background-position': 'left center' },
+              '50%': { 'background-position': 'right center' },
+            },
+            'border-pulse': {
+              '0%, 100%': { 'border-color': 'rgba(14, 165, 233, 0.5)' },
+              '50%': { 'border-color': 'rgba(155, 93, 229, 0.5)' },
+            },
+            'neon-glow': {
+              '0%': { 
+                'text-shadow': '0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--color-secondary), 0 0 20px var(--color-secondary)',
+                'opacity': '1'
+              },
+              '100%': { 
+                'text-shadow': '0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--color-accent), 0 0 40px var(--color-accent)',
+                'opacity': '0.9'
+              }
+            },
+            'particle-float': {
+              '0%': { transform: 'translateY(0) rotate(0deg)' },
+              '100%': { transform: 'translateY(-100vh) rotate(360deg)' }
+            },
+            'holographic-shine': {
+              '0%': { 'background-position': '0% 50%' },
+              '100%': { 'background-position': '100% 50%' }
+            },
+            'metallic-shimmer': {
+              '0%, 100%': { 
+                'background-color': 'var(--color-premium-gold)',
+                'box-shadow': '0 0 10px var(--color-premium-gold)'
+              },
+              '50%': { 
+                'background-color': 'var(--color-premium-platinum)',
+                'box-shadow': '0 0 20px var(--color-premium-platinum)'
+              }
+            },
+            'premium-sparkle': {
+              '0%': { 'opacity': '0.3', 'transform': 'scale(0.8)' },
+              '50%': { 'opacity': '1', 'transform': 'scale(1.1)' },
+              '100%': { 'opacity': '0.3', 'transform': 'scale(0.8)' }
             }
           }
         }
       }
     }
   </script>
-  
-  <!-- AOS Library -->
+
+  <!-- AOS Animation Library -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  
-  <!-- Font Awesome -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" crossorigin="anonymous"></script>
-  
+
   <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- GSAP for advanced animations -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Custom Styles -->
   <style>
     :root {
-      --color-primary: #0ea5e9;
-      --color-secondary: #8b5cf6;
-      --color-dark: #0f172a;
+      --color-primary: #0f172a;
+      --color-secondary: #0ea5e9;
+      --color-accent: #8b5cf6;
+      --color-electric: #00f5d4;
+      --color-premium-gold: #FFD700;
+      --color-premium-platinum: #E5E4E2;
+      --color-premium-diamond: #B9F2FF;
+      --color-premium-ruby: #E0115F;
+      --color-premium-sapphire: #0F52BA;
+      --color-premium-emerald: #50C878;
     }
-    
-    body {
-      font-family: 'Inter', sans-serif;
+
+    /* Smooth scrolling */
+    html {
       scroll-behavior: smooth;
-      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-      color: var(--color-dark);
     }
-    
-    .heading-font {
-      font-family: 'Space Grotesk', sans-serif;
+
+    /* Premium Particle Background */
+    .premium-particle-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      overflow: hidden;
     }
-    
-    .bg-glass {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.18);
+
+    .premium-particle {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(1px);
+      animation: particle-float linear infinite;
     }
-    
-    .bg-animated {
-      background: linear-gradient(-45deg, var(--color-dark), var(--color-secondary), var(--color-primary), var(--color-dark));
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
+
+    /* Glass Morphism Effect */
+    .premium-glass {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      box-shadow: 0 8px 32px 0 rgba(14, 165, 233, 0.1);
     }
-    
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+
+    .premium-glass:hover {
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px 0 rgba(14, 165, 233, 0.3);
+      transform: translateY(-5px);
     }
-    
-    .nav-link {
+
+    /* Premium Gradient Text */
+    .premium-gradient-text {
+      background: linear-gradient(45deg, 
+        var(--color-premium-gold), 
+        var(--color-premium-diamond), 
+        var(--color-premium-emerald),
+        var(--color-premium-sapphire));
+      background-size: 300% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: text-gradient 8s ease infinite;
+    }
+
+    /* Premium Navigation Link Animation */
+    .premium-nav-link {
       position: relative;
+      overflow: hidden;
     }
-    
-    .nav-link::after {
+
+    .premium-nav-link::before {
       content: '';
       position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: -2px;
-      left: 0;
-      background-color: var(--color-primary);
-      transition: width 0.3s ease;
-    }
-    
-    .nav-link:hover::after {
       width: 100%;
+      height: 2px;
+      bottom: 0;
+      left: -100%;
+      background: linear-gradient(90deg, transparent, var(--color-premium-gold), transparent);
+      transition: all 0.4s ease;
     }
-    
-    .btn-hover {
-      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    .premium-nav-link:hover::before {
+      left: 100%;
     }
-    
-    .btn-hover:hover {
-      transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-    }
-    
-    .card {
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    /* Premium 3D Card Effect */
+    .premium-card-3d {
       transform-style: preserve-3d;
+      perspective: 1000px;
+      transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
-    
-    .card:hover {
-      transform: translateY(-10px) rotateX(5deg);
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+    .premium-card-3d:hover {
+      transform: translateY(-10px) rotateX(5deg) scale(1.02);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     }
-    
-    .social-icon {
-      transition: all 0.3s ease;
-      transform-style: preserve-3d;
+
+    /* Premium Floating Animation */
+    .premium-floating {
+      animation: float 6s ease-in-out infinite;
     }
-    
-    .social-icon:hover {
-      transform: translateY(-5px) rotateY(15deg) scale(1.1);
+
+    /* Premium Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
     }
-    
-    /* Hide the title Aqib Ali on mobile view */
+
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(var(--color-premium-gold), var(--color-premium-emerald));
+      border-radius: 10px;
+      transition: all 0.3s;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(var(--color-premium-sapphire), var(--color-premium-diamond));
+    }
+
+    /* Premium Hamburger Animation */
+    .premium-hamburger path {
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .premium-hamburger-active .premium-hamburger-top {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .premium-hamburger-active .premium-hamburger-middle {
+      opacity: 0;
+    }
+
+    .premium-hamburger-active .premium-hamburger-bottom {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Premium Hero Glow Effect */
+    .premium-hero-glow {
+      filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.4));
+    }
+
+    /* Premium Animated Gradient Border */
+    .premium-gradient-border {
+      position: relative;
+      border-radius: 1rem;
+    }
+
+    .premium-gradient-border::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      z-index: -1;
+      border-radius: 1rem;
+      background: linear-gradient(45deg, 
+        var(--color-premium-gold), 
+        var(--color-premium-diamond), 
+        var(--color-premium-emerald),
+        var(--color-premium-sapphire));
+      background-size: 300% 300%;
+      animation: gradient-x 8s ease infinite;
+    }
+
+    /* Premium Button Hover Effect */
+    .premium-btn-hover {
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      background-size: 200% auto;
+    }
+
+    .premium-btn-hover:hover {
+      background-position: right center;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Premium Section Transition */
+    .premium-section-transition {
+      transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Premium Focus Styles */
+    *:focus-visible {
+      outline: 2px solid var(--color-premium-gold);
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+
+    /* Premium Neon Text Effect */
+    .premium-neon-text {
+      animation: neon-glow 2s ease-in-out infinite alternate;
+    }
+
+    /* Premium Timeline Styles */
+    .premium-timeline {
+      position: relative;
+      padding-left: 3rem;
+    }
+
+    .premium-timeline::before {
+      content: '';
+      position: absolute;
+      left: 1.5rem;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(to bottom, 
+        var(--color-premium-gold), 
+        var(--color-premium-emerald),
+        var(--color-premium-sapphire));
+      border-radius: 2px;
+    }
+
+    .premium-timeline-item {
+      position: relative;
+      padding-bottom: 3rem;
+    }
+
+    .premium-timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -3rem;
+      top: 0.5rem;
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 50%;
+      background: var(--color-premium-gold);
+      border: 4px solid white;
+      box-shadow: 0 0 0 4px var(--color-premium-gold);
+    }
+
+    /* Premium Skill Meter Animation */
+    .premium-skill-meter {
+      height: 8px;
+      background: rgba(255, 215, 0, 0.2);
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .premium-skill-level {
+      height: 100%;
+      background: linear-gradient(90deg, 
+        var(--color-premium-gold), 
+        var(--color-premium-emerald));
+      border-radius: 4px;
+      transition: width 1.5s ease-out;
+      position: relative;
+    }
+
+    .premium-skill-level::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(90deg, 
+        rgba(255,255,255,0.2) 0%, 
+        rgba(255,255,255,0.5) 50%, 
+        rgba(255,255,255,0.2) 100%);
+      animation: shimmer 2s infinite linear;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    /* Premium Floating Shapes Background */
+    .premium-floating-shapes {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .premium-shape {
+      position: absolute;
+      opacity: 0.1;
+      filter: blur(60px);
+      animation: float 15s infinite linear;
+    }
+
+    .premium-shape-1 {
+      width: 300px;
+      height: 300px;
+      background: var(--color-premium-gold);
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      top: 20%;
+      left: 10%;
+      animation-delay: 0s;
+      animation-duration: 20s;
+    }
+
+    .premium-shape-2 {
+      width: 400px;
+      height: 400px;
+      background: var(--color-premium-sapphire);
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      top: 60%;
+      left: 60%;
+      animation-delay: 3s;
+      animation-duration: 25s;
+    }
+
+    .premium-shape-3 {
+      width: 250px;
+      height: 250px;
+      background: var(--color-premium-emerald);
+      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+      top: 30%;
+      left: 70%;
+      animation-delay: 6s;
+      animation-duration: 30s;
+    }
+
+    /* Premium Animated Underline */
+    .premium-underline {
+      position: relative;
+      display: inline-block;
+    }
+
+    .premium-underline::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      bottom: -5px;
+      left: 0;
+      background: linear-gradient(90deg, 
+        var(--color-premium-gold), 
+        var(--color-premium-emerald));
+      transform: scaleX(0);
+      transform-origin: bottom right;
+      transition: transform 0.5s ease-out;
+    }
+
+    .premium-underline:hover::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+
+    /* Premium Holographic Effect */
+    .premium-holographic {
+      background: linear-gradient(135deg, 
+        rgba(255, 215, 0, 0.1) 0%, 
+        rgba(185, 242, 255, 0.1) 50%, 
+        rgba(80, 200, 120, 0.1) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .premium-holographic::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0) 45%,
+        rgba(255, 255, 255, 0.7) 50%,
+        rgba(255, 255, 255, 0) 55%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: rotate(30deg);
+      animation: shine 3s infinite;
+    }
+
+    @keyframes shine {
+      0% { left: -100%; }
+      20% { left: 100%; }
+      100% { left: 100%; }
+    }
+
+    /* Premium Metallic Badge */
+    .premium-badge {
+      background: linear-gradient(135deg, 
+        var(--color-premium-gold), 
+        var(--color-premium-platinum));
+      color: var(--color-primary-800);
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      animation: metallic-shimmer 3s ease infinite;
+    }
+
+    /* Premium Sparkle Effect */
+    .premium-sparkle {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background: white;
+      border-radius: 50%;
+      filter: blur(1px);
+      animation: premium-sparkle 5s ease infinite;
+      pointer-events: none;
+    }
+
+    /* Premium Work Process Cards */
+    .premium-process-card {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .premium-process-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.2);
+    }
+
+    .premium-process-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, 
+        var(--color-premium-gold), 
+        var(--color-premium-emerald));
+    }
+
+    /* Premium Responsive Adjustments */
     @media (max-width: 768px) {
-      .desktop-name {
-        display: none;
+      .premium-timeline {
+        padding-left: 2rem;
       }
-      .mobile-name {
-        display: block;
+      .premium-timeline-item::before {
+        left: -2rem;
+        width: 1rem;
+        height: 1rem;
       }
-    }
-    
-    /* Accessibility focus styles */
-    *:focus {
-      outline: 2px solid var(--color-primary);
-      outline-offset: 2px;
     }
   </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
-  <!-- Navbar -->
-  <header class="fixed top-0 left-0 w-full bg-white/80 shadow-sm z-50 backdrop-blur-md">
+
+<body class="bg-gradient-to-br from-primary-50 via-blue-50 to-primary-100 font-pop text-primary-900 antialiased">
+
+  <!-- Premium Particle Background -->
+  <div id="premium-particle-network" class="premium-particle-bg"></div>
+
+  <!-- Premium Floating Shapes Background -->
+  <div class="premium-floating-shapes">
+    <div class="premium-shape premium-shape-1"></div>
+    <div class="premium-shape premium-shape-2"></div>
+    <div class="premium-shape premium-shape-3"></div>
+  </div>
+
+  <!-- Premium Navigation -->
+  <header class="fixed top-0 left-0 w-full bg-white/95 backdrop-blur-lg shadow-sm z-50 transition-all duration-300 hover:bg-white/97">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-      <h1 class="text-xl font-bold text-primary-700 desktop-name heading-font">Aqib Ali</h1>
-      <h1 class="text-xl font-bold text-primary-700 mobile-name heading-font">About Me</h1>
-      <nav class="hidden md:flex space-x-8 font-medium text-gray-700">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="services.html" class="nav-link">Services</a>
-        <a href="skills.html" class="nav-link">Skills</a>
-        <a href="contact.html" class="nav-link">Contact</a>
-      </nav>
-      <button id="menu-btn" class="md:hidden text-gray-700 text-2xl focus:outline-none" aria-label="Toggle menu" aria-expanded="false">
-        <i class="fas fa-bars"></i>
-      </button>
-    </div>
-    <div id="mobile-menu" class="hidden bg-white/95 px-6 pb-4 backdrop-blur-md">
-      <a href="index.html" class="block py-3 nav-link border-b border-gray-100">Home</a>
-      <a href="about.html" class="block py-3 nav-link border-b border-gray-100">About Me</a>
-      <a href="services.html" class="block py-3 nav-link border-b border-gray-100">Services</a>
-      <a href="skills.html" class="block py-3 nav-link border-b border-gray-100">Skills</a>
-      <a href="contact.html" class="block py-3 nav-link">Contact</a>
-    </div>
-  </header>
-
-  <!-- Main Content -->
-  <main class="pt-24">
-    <!-- Hero Section -->
-    <section class="relative overflow-hidden">
-      <div class="absolute inset-0 bg-gradient-to-br from-primary-500/10 to-secondary-500/10 transform skew-y-6 -rotate-6 origin-top-left"></div>
-      <div class="max-w-7xl mx-auto px-6 py-24 relative z-10">
-        <div class="text-center">
-          <h1 class="text-5xl md:text-6xl font-bold mb-6 heading-font" data-aos="fade-up">
-            <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-secondary-600">Aqib Ali</span>
-          </h1>
-          <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-            Computer Science Professional | Tech Enthusiast | Problem Solver
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- About Me -->
-    <section id="about" class="py-20 bg-white" data-aos="fade-up">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4 heading-font">Who I Am</h2>
-          <div class="w-20 h-1 bg-gradient-to-r from-primary-500 to-secondary-500 mx-auto"></div>
-        </div>
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-          <div class="relative" data-aos="fade-right">
-            <div class="bg-gradient-to-br from-primary-100 to-secondary-100 rounded-2xl p-1 shadow-xl">
-              <div class="bg-white rounded-xl p-6 h-full">
-                <p class="text-lg leading-relaxed text-gray-700">
-                  I'm a dedicated and curious tech enthusiast, currently pursuing a Bachelor of Science in Computer Science from the University of the People. I also hold a Diploma in Information Technology from Modern Institute of Science and Technology.
-                </p>
-                <p class="text-lg leading-relaxed text-gray-700 mt-4">
-                  My passion lies in solving real-world problems using innovative digital solutions. I enjoy exploring new tools, languages, and platforms, and I believe in continuous learning and growing every day.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="grid grid-cols-2 gap-4" data-aos="fade-left" data-aos-delay="200">
-            <div class="bg-gradient-to-br from-primary-500 to-primary-700 rounded-xl p-6 text-white h-40 flex flex-col justify-center">
-              <h3 class="text-xl font-bold mb-2">2+</h3>
-              <p class="text-primary-100">Years Experience</p>
-            </div>
-            <div class="bg-gradient-to-br from-secondary-500 to-secondary-700 rounded-xl p-6 text-white h-40 flex flex-col justify-center">
-              <h3 class="text-xl font-bold mb-2">10+</h3>
-              <p class="text-secondary-100">Projects Completed</p>
-            </div>
-            <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-6 text-white h-40 flex flex-col justify-center">
-              <h3 class="text-xl font-bold mb-2">50+</h3>
-              <p class="text-gray-300">Certifications</p>
-            </div>
-            <div class="bg-gradient-to-br from-rose-500 to-rose-700 rounded-xl p-6 text-white h-40 flex flex-col justify-center">
-              <h3 class="text-xl font-bold mb-2">100%</h3>
-              <p class="text-rose-100">Dedication</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Education -->
-    <section id="education" class="py-20 bg-gray-50" data-aos="fade-up">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4 heading-font">Education</h2>
-          <div class="w-20 h-1 bg-gradient-to-r from-primary-500 to-secondary-500 mx-auto"></div>
-        </div>
-        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <div class="card bg-white rounded-xl p-8 shadow-md hover:shadow-xl">
-            <div class="flex items-center mb-6">
-              <div class="bg-primary-100 p-3 rounded-full mr-4">
-                <i class="fas fa-graduation-cap text-primary-600 text-2xl"></i>
-              </div>
-              <h3 class="text-xl font-bold text-gray-800">Bachelor of Science in Computer Science</h3>
-            </div>
-            <p class="text-gray-600 mb-4">University of the People (Online, USA)</p>
-            <p class="text-gray-500 text-sm">Current Student</p>
-          </div>
-          <div class="card bg-white rounded-xl p-8 shadow-md hover:shadow-xl">
-            <div class="flex items-center mb-6">
-              <div class="bg-secondary-100 p-3 rounded-full mr-4">
-                <i class="fas fa-certificate text-secondary-600 text-2xl"></i>
-              </div>
-              <h3 class="text-xl font-bold text-gray-800">Diploma in Information Technology</h3>
-            </div>
-            <p class="text-gray-600 mb-4">Modern Institute of Science and Technology</p>
-            <p class="text-gray-500 text-sm">Completed</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Certifications -->
-    <section id="certifications" class="py-20 bg-gradient-to-br from-primary-50 to-secondary-50" data-aos="fade-up">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4 heading-font">Tech Courses & Certifications</h2>
-          <div class="w-20 h-1 bg-gradient-to-r from-primary-500 to-secondary-500 mx-auto"></div>
-        </div>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          <div class="card bg-white rounded-xl p-6 shadow-md hover:shadow-xl">
-            <div class="flex items-start mb-4">
-              <div class="bg-primary-100 p-2 rounded-lg mr-4">
-                <i class="fas fa-check text-primary-600"></i>
-              </div>
-              <h3 class="text-lg font-semibold text-gray-800">Introduction to Java and OOP</h3>
-            </div>
-            <p class="text-gray-600 text-sm">University of Pennsylvania</p>
-          </div>
-          <div class="card bg-white rounded-xl p-6 shadow-md hover:shadow-xl">
-            <div class="flex items-start mb-4">
-              <div class="bg-primary-100 p-2 rounded-lg mr-4">
-                <i class="fas fa-check text-primary-600"></i>
-              </div>
-              <h3 class="text-lg font-semibold text-gray-800">Software Engineering</h3>
-            </div>
-            <p class="text-gray-600 text-sm">IBM</p>
-          </div>
-          <div class="card bg-white rounded-xl p-6 shadow-md hover:shadow-xl">
-            <div class="flex items-start mb-4">
-              <div class="bg-primary-100 p-2 rounded-lg mr-4">
-                <i class="fas fa-check text-primary-600"></i>
-              </div>
-              <h3 class="text-lg font-semibold text-gray-800">Basic Python</h3>
-            </div>
-            <p class="text-gray-600 text-sm">University of Michigan</p>
-          </div>
-          <div class="card bg-white rounded-xl p-6 shadow-md hover:shadow-xl">
-            <div class="flex items-start mb-4">
-              <div class="bg-primary-100 p-2 rounded-lg mr-4">
-                <i class="fas fa-check text-primary-600"></i>
-              </div>
-              <h3 class="text-lg font-semibold text-gray-800">SQL Course</h3>
-            </div>
-            <p class="text-gray-600 text-sm">TestDome</p>
-          </div>
-          <div class="card bg-white rounded-xl p-6 shadow-md hover:shadow-xl">
-            <div class="flex items-start mb-4">
-              <div class="bg-primary-100 p-2 rounded-lg mr-4">
-                <i class="fas fa-check text-primary-600"></i>
-              </div>
-              <h3 class="text-lg font-semibold text-gray-800">Generative AI</h3>
-            </div>
-            <p class="text-gray-600 text-sm">United Latino Student Association</p>
-          </div>
-          <div class="card bg-white rounded-xl p-6 shadow-md hover:shadow-xl">
-            <div class="flex items-start mb-4">
-              <div class="bg-primary-100 p-2 rounded-lg mr-4">
-                <i class="fas fa-check text-primary-600"></i>
-              </div>
-              <h3 class="text-lg font-semibold text-gray-800">AI Skills</h3>
-            </div>
-            <p class="text-gray-600 text-sm">Accenture & FutureLearn</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Tools & Skills -->
-    <section id="tools" class="py-20 bg-white" data-aos="fade-up">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4 heading-font">Tools & Technologies</h2>
-          <div class="w-20 h-1 bg-gradient-to-r from-primary-500 to-secondary-500 mx-auto"></div>
-        </div>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 max-w-6xl mx-auto">
-          <div class="flex flex-col items-center">
-            <div class="bg-gray-100 p-4 rounded-full mb-3 w-16 h-16 flex items-center justify-center">
-              <i class="fas fa-code text-2xl text-primary-600"></i>
-            </div>
-            <span class="text-sm font-medium text-gray-700">VS Code</span>
-          </div>
-          <div class="flex flex-col items-center">
-            <div class="bg-gray-100 p-4 rounded-full mb-3 w-16 h-16 flex items-center justify-center">
-              <i class="fab fa-html5 text-2xl text-orange-500"></i>
-            </div>
-            <span class="text-sm font-medium text-gray-700">HTML/CSS</span>
-          </div>
-          <div class="flex flex-col items-center">
-            <div class="bg-gray-100 p-4 rounded-full mb-3 w-16 h-16 flex items-center justify-center">
-              <i class="fab fa-js text-2xl text-yellow-400"></i>
-            </div>
-            <span class="text-sm font-medium text-gray-700">JavaScript</span>
-          </div>
-          <div class="flex flex-col items-center">
-            <div class="bg-gray-100 p-4 rounded-full mb-3 w-16 h-16 flex items-center justify-center">
-              <i class="fab fa-python text-2xl text-blue-500"></i>
-            </div>
-            <span class="text-sm font-medium text-gray-700">Python</span>
-          </div>
-          <div class="flex flex-col items-center">
-            <div class="bg-gray-100 p-4 rounded-full mb-3 w-16 h-16 flex items-center justify-center">
-              <i class="fab fa-java text-2xl text-red-500"></i>
-            </div>
-            <span class="text-sm font-medium text-gray-700">Java</span>
-          </div>
-          <div class="flex flex-col items-center">
-            <div class="bg-gray-100 p-4 rounded-full mb-3 w-16 h-16 flex items-center justify-center">
-              <i class="fas fa-database text-2xl text-gray-600"></i>
-            </div>
-            <span class="text-sm font-medium text-gray-700">SQL</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Call to Action -->
-    <section class="py-20 bg-gradient-to-r from-primary-600 to-secondary-600 text-white" data-aos="zoom-in">
-      <div class="max-w-4xl mx-auto px-6 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-6 heading-font">Ready to Work Together?</h2>
-        <p class="text-xl mb-8 max-w-2xl mx-auto">Let's discuss how I can help with your next project or opportunity.</p>
-        <div class="flex flex-col sm:flex-row justify-center gap-4">
-          <a href="contact.html" class="btn-hover px-8 py-3 font-semibold rounded-full bg-white text-primary-600">
-            Contact Me
+      <!-- Logo and Social Icons -->
+      <div class="flex items-center space-x-4">
+        <a href="index.html" class="text-2xl font-bold text-primary-800 font-space hover:text-secondary-500 transition premium-underline">
+          Aqib Ali
+        </a>
+        
+        <!-- Social Icons -->
+        <div class="hidden md:flex space-x-2">
+          <a href="https://www.instagram.com/peaceful_heart66?igsh=am01cno0eHk2N29j" target="_blank" rel="noopener noreferrer" 
+             class="social-icon bg-primary-100 text-primary-700 rounded-full p-2 text-sm hover:bg-gradient-to-br hover:from-pink-500 hover:to-yellow-500 hover:text-white transition transform hover:-translate-y-1" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
           </a>
-          <a href="AqibAli_CV.pdf" download class="btn-hover px-8 py-3 font-semibold rounded-full bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary-600">
-            Download CV
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-white py-12">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="flex flex-col md:flex-row justify-between items-center">
-        <div class="mb-8 md:mb-0">
-          <h2 class="text-2xl font-bold mb-4 heading-font">Aqib Ali</h2>
-          <p class="text-gray-400 max-w-md">Computer Science professional with expertise in software development, AI, and web technologies.</p>
-        </div>
-        <div class="flex space-x-6 mb-8 md:mb-0">
-          <a href="https://www.instagram.com/peaceful_heart66?igsh=am01cno0eHk2N29j" target="_blank" rel="noopener noreferrer" class="social-icon bg-white text-gray-900 rounded-full p-3 text-lg hover:bg-gradient-to-br hover:from-pink-500 hover:to-yellow-500 hover:text-white" aria-label="Instagram">
-            <i class="fab fa-instagram"></i></a>
-          <a href="https://www.linkedin.com/in/aqib-ali-19b4a623b" target="_blank" rel="noopener noreferrer" class="social-icon bg-white text-gray-900 rounded-full p-3 text-lg hover:bg-gradient-to-br hover:from-blue-500 hover:to-blue-700 hover:text-white" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/in/aqib-ali-19b4a623b" target="_blank" rel="noopener noreferrer" 
+             class="social-icon bg-primary-100 text-primary-700 rounded-full p-2 text-sm hover:bg-gradient-to-br hover:from-blue-500 hover:to-blue-700 hover:text-white transition transform hover:-translate-y-1" aria-label="LinkedIn">
             <i class="fab fa-linkedin-in"></i>
           </a>
-          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon bg-white text-gray-900 rounded-full p-3 text-lg hover:bg-gradient-to-br hover:from-blue-600 hover:to-blue-800 hover:text-white" aria-label="Facebook">
+          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" 
+             class="social-icon bg-primary-100 text-primary-700 rounded-full p-2 text-sm hover:bg-gradient-to-br hover:from-blue-600 hover:to-blue-800 hover:text-white transition transform hover:-translate-y-1" aria-label="Facebook">
             <i class="fab fa-facebook-f"></i>
           </a>
-          <a href="https://wa.me/yourphonenumber" target="_blank" rel="noopener noreferrer" class="social-icon bg-white text-gray-900 rounded-full p-3 text-lg hover:bg-gradient-to-br hover:from-green-500 hover:to-green-600 hover:text-white" aria-label="WhatsApp">
+          <a href="https://wa.me/yourphonenumber" target="_blank" rel="noopener noreferrer" 
+             class="social-icon bg-primary-100 text-primary-700 rounded-full p-2 text-sm hover:bg-gradient-to-br hover:from-green-500 hover:to-green-600 hover:text-white transition transform hover:-translate-y-1" aria-label="WhatsApp">
             <i class="fab fa-whatsapp"></i>
           </a>
         </div>
       </div>
-      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
+      
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex space-x-8">
+        <a href="index.html" class="premium-nav-link text-primary-700 hover:text-secondary-500 font-medium">Home</a>
+        <a href="services.html" class="premium-nav-link text-primary-700 hover:text-secondary-500 font-medium">Services</a>
+        <a href="skills.html" class="premium-nav-link text-primary-700 hover:text-secondary-500 font-medium">Skills</a>
+        <a href="contact.html" class="premium-nav-link text-primary-700 hover:text-secondary-500 font-medium">Contact</a>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button id="premium-menu-toggle" class="md:hidden focus:outline-none group" aria-label="Toggle menu">
+        <svg class="w-8 h-8 text-primary-700 group-hover:text-secondary-500 transition premium-hamburger" viewBox="0 0 24 24">
+          <path id="premium-hamburger-top" class="premium-hamburger-top" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 6h16" />
+          <path id="premium-hamburger-middle" class="premium-hamburger-middle" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 12h16" />
+          <path id="premium-hamburger-bottom" class="premium-hamburger-bottom" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="premium-mobile-menu" class="md:hidden hidden bg-white/97 backdrop-blur-lg px-6 pb-4 transition-all duration-300 transform origin-top">
+      <div class="flex flex-col space-y-4 py-4">
+        <a href="index.html" class="py-2 text-primary-700 hover:text-secondary-500 border-b border-gray-100 transition">Home</a>
+        <a href="services.html" class="py-2 text-primary-700 hover:text-secondary-500 border-b border-gray-100 transition">Services</a>
+        <a href="skills.html" class="py-2 text-primary-700 hover:text-secondary-500 border-b border-gray-100 transition">Skills</a>
+        <a href="contact.html" class="py-2 text-primary-700 hover:text-secondary-500 transition">Contact</a>
+        
+        <!-- Social icons in mobile menu -->
+        <div class="flex space-x-4 pt-4 justify-center">
+          <a href="https://www.instagram.com/peaceful_heart66?igsh=am01cno0eHk2N29j" target="_blank" rel="noopener noreferrer" 
+             class="social-icon bg-primary-100 text-primary-700 rounded-full p-2 text-lg hover:bg-gradient-to-br hover:from-pink-500 hover:to-yellow-500 hover:text-white transition transform hover:-translate-y-1" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/aqib-ali-19b4a623b" target="_blank" rel="noopener noreferrer" 
+             class="social-icon bg-primary-100 text-primary-700 rounded-full p-2 text-lg hover:bg-gradient-to-br hover:from-blue-500 hover:to-blue-700 hover:text-white transition transform hover:-translate-y-1" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" 
+             class="social-icon bg-primary-100 text-primary-700 rounded-full p-2 text-lg hover:bg-gradient-to-br hover:from-blue-600 hover:to-blue-800 hover:text-white transition transform hover:-translate-y-1" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://wa.me/yourphonenumber" target="_blank" rel="noopener noreferrer" 
+             class="social-icon bg-primary-100 text-primary-700 rounded-full p-2 text-lg hover:bg-gradient-to-br hover:from-green-500 hover:to-green-600 hover:text-white transition transform hover:-translate-y-1" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Premium Hero Section -->
+  <section class="min-h-screen flex items-center justify-center pt-20 px-6 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-primary-800 to-primary-900 opacity-95"></div>
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10 py-12 px-6">
+      <!-- Profile Image -->
+      <div class="premium-floating premium-hero-glow" data-aos="fade-right">
+        <div class="relative">
+          <img src="aqib-profile.jpg" alt="Aqib Ali" 
+               class="w-full max-w-md mx-auto rounded-2xl border-4 border-white shadow-2xl object-cover premium-gradient-border">
+          <div class="absolute -inset-4 rounded-2xl bg-gradient-to-r from-premium-gold/20 via-premium-emerald/20 to-premium-sapphire/20 blur-xl -z-10"></div>
+          <div class="absolute -bottom-6 -right-6 premium-badge px-4 py-2 rounded-full shadow-lg" data-aos="fade-up" data-aos-delay="300">
+            <span class="text-sm">Full Stack Developer</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- About Content -->
+      <div class="text-white" data-aos="fade-left" data-aos-delay="200">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 premium-neon-text">
+          About <span class="premium-gradient-text">Aqib Ali</span>
+        </h1>
+        
+        <div class="premium-glass p-6 rounded-xl mb-8">
+          <p class="text-lg md:text-xl mb-4">
+            I'm a <span class="font-bold text-premium-gold">Computer Science professional</span> with expertise in software development, artificial intelligence, and web technologies. My journey combines technical excellence with creative vision.
+          </p>
+          <p class="text-lg md:text-xl">
+            As a <span class="font-bold text-premium-emerald">Full Stack Developer</span>, <span class="font-bold text-premium-emerald">WordPress Expert</span>, and <span class="font-bold text-premium-emerald">Digital Creator</span>, I transform ideas into exceptional digital experiences.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+          <div class="premium-glass p-4 rounded-lg">
+            <h3 class="font-bold text-lg mb-2">Experience</h3>
+            <p class="text-2xl font-bold premium-gradient-text">5+ Years</p>
+          </div>
+          <div class="premium-glass p-4 rounded-lg">
+            <h3 class="font-bold text-lg mb-2">Projects</h3>
+            <p class="text-2xl font-bold premium-gradient-text">50+</p>
+          </div>
+          <div class="premium-glass p-4 rounded-lg">
+            <h3 class="font-bold text-lg mb-2">Clients</h3>
+            <p class="text-2xl font-bold premium-gradient-text">30+</p>
+          </div>
+        </div>
+        
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#work-process" 
+             class="premium-btn-hover px-6 py-3 bg-gradient-to-r from-premium-gold to-premium-emerald text-white font-bold rounded-full shadow-lg hover:from-premium-sapphire hover:to-premium-emerald transition-all duration-300">
+            My Process
+          </a>
+          <a href="#expertise" 
+             class="premium-btn-hover px-6 py-3 border-2 border-white text-white font-bold rounded-full hover:bg-white/10 transition-all duration-300">
+            My Expertise
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Premium Work Process Section -->
+  <section id="work-process" class="py-24 bg-white premium-section-transition">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 font-space" data-aos="fade-up">
+        How I <span class="premium-gradient-text">Work</span>
+      </h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Discover -->
+        <div class="premium-process-card premium-glass p-8 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+          <div class="text-5xl mb-4 premium-gradient-text">🔍</div>
+          <h3 class="text-xl font-bold mb-4">Discover</h3>
+          <p class="text-primary-600">
+            I begin by thoroughly understanding your needs, goals, and target audience through research and consultation.
+          </p>
+          <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-premium-gold to-premium-emerald"></div>
+        </div>
+        
+        <!-- Design -->
+        <div class="premium-process-card premium-glass p-8 rounded-xl" data-aos="fade-up" data-aos-delay="200">
+          <div class="text-5xl mb-4 premium-gradient-text">🎨</div>
+          <h3 class="text-xl font-bold mb-4">Design</h3>
+          <p class="text-primary-600">
+            Creating wireframes, prototypes, and visual designs that align with your brand and user experience goals.
+          </p>
+          <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-premium-emerald to-premium-sapphire"></div>
+        </div>
+        
+        <!-- Develop -->
+        <div class="premium-process-card premium-glass p-8 rounded-xl" data-aos="fade-up" data-aos-delay="300">
+          <div class="text-5xl mb-4 premium-gradient-text">💻</div>
+          <h3 class="text-xl font-bold mb-4">Develop</h3>
+          <p class="text-primary-600">
+            Building robust, scalable solutions using the latest technologies and best coding practices.
+          </p>
+          <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-premium-sapphire to-premium-diamond"></div>
+        </div>
+        
+        <!-- Deliver -->
+        <div class="premium-process-card premium-glass p-8 rounded-xl" data-aos="fade-up" data-aos-delay="400">
+          <div class="text-5xl mb-4 premium-gradient-text">🚀</div>
+          <h3 class="text-xl font-bold mb-4">Deliver</h3>
+          <p class="text-primary-600">
+            Thorough testing, optimization, and deployment followed by training and ongoing support.
+          </p>
+          <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-premium-diamond to-premium-gold"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Premium Expertise Section -->
+  <section id="expertise" class="py-24 bg-gradient-to-r from-primary-100 via-blue-50 to-primary-100 premium-section-transition">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 font-space" data-aos="fade-up">
+        My <span class="premium-gradient-text">Expertise</span>
+      </h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <!-- Technical Expertise -->
+        <div data-aos="fade-right">
+          <h3 class="text-2xl font-bold mb-8 flex items-center">
+            <span class="w-10 h-10 rounded-full bg-gradient-to-r from-premium-gold to-premium-emerald flex items-center justify-center text-white mr-4">💻</span>
+            Technical Skills
+          </h3>
+          
+          <div class="space-y-6">
+            <!-- Web Development -->
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="font-medium text-primary-800">Web Development</span>
+                <span class="text-primary-600">95%</span>
+              </div>
+              <div class="premium-skill-meter">
+                <div class="premium-skill-level" style="width: 95%"></div>
+              </div>
+            </div>
+            
+            <!-- WordPress -->
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="font-medium text-primary-800">WordPress</span>
+                <span class="text-primary-600">90%</span>
+              </div>
+              <div class="premium-skill-meter">
+                <div class="premium-skill-level" style="width: 90%"></div>
+              </div>
+            </div>
+            
+            <!-- AI/ML -->
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="font-medium text-primary-800">AI/Machine Learning</span>
+                <span class="text-primary-600">85%</span>
+              </div>
+              <div class="premium-skill-meter">
+                <div class="premium-skill-level" style="width: 85%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Creative Expertise -->
+        <div data-aos="fade-left">
+          <h3 class="text-2xl font-bold mb-8 flex items-center">
+            <span class="w-10 h-10 rounded-full bg-gradient-to-r from-premium-emerald to-premium-sapphire flex items-center justify-center text-white mr-4">🎨</span>
+            Creative Skills
+          </h3>
+          
+          <div class="space-y-6">
+            <!-- Graphic Design -->
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="font-medium text-primary-800">Graphic Design</span>
+                <span class="text-primary-600">92%</span>
+              </div>
+              <div class="premium-skill-meter">
+                <div class="premium-skill-level" style="width: 92%"></div>
+              </div>
+            </div>
+            
+            <!-- Video Editing -->
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="font-medium text-primary-800">Video Editing</span>
+                <span class="text-primary-600">88%</span>
+              </div>
+              <div class="premium-skill-meter">
+                <div class="premium-skill-level" style="width: 88%"></div>
+              </div>
+            </div>
+            
+            <!-- CV Writing -->
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="font-medium text-primary-800">CV Writing</span>
+                <span class="text-primary-600">95%</span>
+              </div>
+              <div class="premium-skill-meter">
+                <div class="premium-skill-level" style="width: 95%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12" data-aos="fade-up">
+        <a href="skills.html" class="premium-btn-hover inline-block bg-gradient-to-r from-premium-gold to-premium-emerald text-white font-semibold px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
+          View All Skills
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Premium Experience Section -->
+  <section class="py-24 bg-white premium-section-transition">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 font-space" data-aos="fade-up">
+        My <span class="premium-gradient-text">Experience</span>
+      </h2>
+      
+      <div class="grid md:grid-cols-2 gap-12">
+        <!-- Professional Experience -->
+        <div data-aos="fade-right">
+          <h3 class="text-2xl font-bold mb-8 flex items-center">
+            <span class="w-10 h-10 rounded-full bg-gradient-to-r from-premium-sapphire to-premium-diamond flex items-center justify-center text-white mr-4">💼</span>
+            Professional Journey
+          </h3>
+          
+          <div class="premium-timeline">
+            <div class="premium-timeline-item" data-aos="fade-up" data-aos-delay="100">
+              <h4 class="text-xl font-bold mb-2">Full Stack Developer</h4>
+              <p class="text-primary-600 mb-1">Freelance | 2020-Present</p>
+              <p class="text-primary-500">
+                Developed custom web applications for clients worldwide using MERN stack and modern technologies.
+              </p>
+            </div>
+            
+            <div class="premium-timeline-item" data-aos="fade-up" data-aos-delay="200">
+              <h4 class="text-xl font-bold mb-2">WordPress Specialist</h4>
+              <p class="text-primary-600 mb-1">Tech Solutions Inc. | 2021-2022</p>
+              <p class="text-primary-500">
+                Created and optimized 20+ WordPress websites with custom themes and plugins.
+              </p>
+            </div>
+            
+            <div class="premium-timeline-item" data-aos="fade-up" data-aos-delay="300">
+              <h4 class="text-xl font-bold mb-2">Graphic Designer</h4>
+              <p class="text-primary-600 mb-1">Creative Studio | 2019-2020</p>
+              <p class="text-primary-500">
+                Designed branding materials, social media graphics, and marketing collateral.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Education -->
+        <div data-aos="fade-left">
+          <h3 class="text-2xl font-bold mb-8 flex items-center">
+            <span class="w-10 h-10 rounded-full bg-gradient-to-r from-premium-diamond to-premium-gold flex items-center justify-center text-white mr-4">🎓</span>
+            Education
+          </h3>
+          
+          <div class="premium-timeline">
+            <div class="premium-timeline-item" data-aos="fade-up" data-aos-delay="400">
+              <h4 class="text-xl font-bold mb-2">Computer Science</h4>
+              <p class="text-primary-600 mb-1">University of the People | Pursuing</p>
+              <p class="text-primary-500">
+                Specializing in Software Development and Artificial Intelligence.
+              </p>
+            </div>
+            
+            <div class="premium-timeline-item" data-aos="fade-up" data-aos-delay="500">
+              <h4 class="text-xl font-bold mb-2">Diploma in IT</h4>
+              <p class="text-primary-600 mb-1">Modern Institute of Science & Technology | 2019</p>
+              <p class="text-primary-500">
+                Focused on Information Technology fundamentals and practical applications.
+              </p>
+            </div>
+            
+            <div class="premium-timeline-item" data-aos="fade-up" data-aos-delay="600">
+              <h4 class="text-xl font-bold mb-2">Web Development Certifications</h4>
+              <p class="text-primary-600 mb-1">Various Platforms | 2020-2023</p>
+              <p class="text-primary-500">
+                Completed multiple certifications in Full Stack Development and WordPress.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Premium Philosophy Section -->
+  <section class="py-24 bg-gradient-to-r from-primary-800 to-primary-900 text-white premium-section-transition">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="premium-glass p-8 md:p-12 rounded-2xl shadow-lg" data-aos="zoom-in">
+        <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center font-space premium-neon-text">
+          My <span class="premium-gradient-text">Philosophy</span>
+        </h2>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="premium-holographic premium-glass p-6 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+            <div class="text-4xl mb-4 premium-gradient-text">💡</div>
+            <h3 class="text-xl font-bold mb-3">Innovation Driven</h3>
+            <p class="text-primary-200">I constantly explore new technologies and creative approaches to deliver cutting-edge solutions that stand out in the digital landscape.</p>
+          </div>
+          
+          <div class="premium-holographic premium-glass p-6 rounded-xl" data-aos="fade-up" data-aos-delay="200">
+            <div class="text-4xl mb-4 premium-gradient-text">🎯</div>
+            <h3 class="text-xl font-bold mb-3">Results Oriented</h3>
+            <p class="text-primary-200">Every project is measured by its impact. I focus on delivering tangible results that drive business growth and user satisfaction.</p>
+          </div>
+          
+          <div class="premium-holographic premium-glass p-6 rounded-xl" data-aos="fade-up" data-aos-delay="300">
+            <div class="text-4xl mb-4 premium-gradient-text">🤝</div>
+            <h3 class="text-xl font-bold mb-3">Collaborative Approach</h3>
+            <p class="text-primary-200">I believe the best results come from close collaboration with clients, understanding their vision and translating it into reality.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Premium CTA Section -->
+  <section class="py-20 bg-gradient-to-r from-premium-gold to-premium-emerald text-white text-center premium-section-transition">
+    <div class="max-w-4xl mx-auto px-6" data-aos="zoom-in">
+      <h3 class="text-3xl md:text-4xl font-bold mb-6 font-space">Ready to Create Something Amazing?</h3>
+      <p class="text-xl mb-8 max-w-2xl mx-auto">
+        Whether you need a website, application, or design work, I'd love to discuss how I can help bring your vision to life.
+      </p>
+      <a href="contact.html" 
+         class="premium-btn-hover inline-block bg-white text-primary-700 font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-primary-800 hover:text-white transition-all duration-300 bg-gradient-to-r from-white to-gray-100">
+        Get In Touch
+      </a>
+    </div>
+  </section>
+
+  <!-- Premium Footer -->
+  <footer class="bg-primary-900 text-white py-12 premium-section-transition">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-8 md:mb-0">
+          <h2 class="text-2xl font-bold mb-4 font-space">Aqib Ali</h2>
+          <p class="text-primary-300 max-w-md">
+            Transforming ideas into digital experiences through code, design, and innovation.
+          </p>
+        </div>
+        <div class="flex space-x-4">
+          <a href="https://www.instagram.com/peaceful_heart66?igsh=am01cno0eHk2N29j" target="_blank" rel="noopener noreferrer" 
+             class="social-icon bg-white text-primary-900 rounded-full p-3 text-lg hover:bg-gradient-to-br hover:from-pink-500 hover:to-yellow-500 hover:text-white transition transform hover:-translate-y-1" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/aqib-ali-19b4a623b" target="_blank" rel="noopener noreferrer" 
+             class="social-icon bg-white text-primary-900 rounded-full p-3 text-lg hover:bg-gradient-to-br hover:from-blue-500 hover:to-blue-700 hover:text-white transition transform hover:-translate-y-1" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" 
+             class="social-icon bg-white text-primary-900 rounded-full p-3 text-lg hover:bg-gradient-to-br hover:from-blue-600 hover:to-blue-800 hover:text-white transition transform hover:-translate-y-1" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://wa.me/yourphonenumber" target="_blank" rel="noopener noreferrer" 
+             class="social-icon bg-white text-primary-900 rounded-full p-3 text-lg hover:bg-gradient-to-br hover:from-green-500 hover:to-green-600 hover:text-white transition transform hover:-translate-y-1" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+      <div class="border-t border-primary-800 mt-8 pt-8 text-center text-primary-400 text-sm">
         <p>© 2025 Aqib Ali. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
-  <!-- AOS Library -->
+  <!-- GSAP for Advanced Animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+
+  <!-- AOS Animation Script -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   
-  <!-- Custom JS -->
+  <!-- Font Awesome -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+
+  <!-- Main Script -->
   <script>
     // Initialize AOS animations
     AOS.init({
       duration: 800,
-      once: true
+      once: true,
+      easing: 'ease-out-quart'
     });
-    
+
     // Mobile menu toggle
-    const menuButton = document.getElementById("menu-btn");
-    const mobileMenu = document.getElementById("mobile-menu");
+    const menuToggle = document.getElementById('premium-menu-toggle');
+    const mobileMenu = document.getElementById('premium-mobile-menu');
     
-    menuButton.addEventListener("click", () => {
-      const expanded = menuButton.getAttribute('aria-expanded') === 'true';
-      menuButton.setAttribute('aria-expanded', !expanded);
-      mobileMenu.classList.toggle("hidden");
-      menuButton.innerHTML = expanded ? '<i class="fas fa-bars"></i>' : '<i class="fas fa-times"></i>';
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      menuToggle.classList.toggle('premium-hamburger-active');
     });
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('#premium-mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuToggle.classList.remove('premium-hamburger-active');
+      });
+    });
+
+    // Premium Particle Background Animation
+    const particleNetwork = document.getElementById('premium-particle-network');
+    const particleCount = 100;
     
-    // GSAP animations
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('premium-particle');
+      
+      // Random size between 1px and 3px
+      const size = Math.random() * 2 + 1;
+      particle.style.width = `${size}px`;
+      particle.style.height = `${size}px`;
+      
+      // Random position
+      particle.style.left = `${Math.random() * 100}%`;
+      particle.style.top = `${Math.random() * 100}%`;
+      
+      // Random color from premium palette
+      const colors = [
+        'var(--color-premium-gold)',
+        'var(--color-premium-emerald)',
+        'var(--color-premium-sapphire)',
+        'var(--color-premium-diamond)'
+      ];
+      const randomColor = colors[Math.floor(Math.random() * colors.length)];
+      particle.style.background = randomColor;
+      
+      // Random opacity
+      particle.style.opacity = Math.random() * 0.6 + 0.2;
+      
+      // Random animation
+      const duration = Math.random() * 20 + 10;
+      const delay = Math.random() * 5;
+      particle.style.animation = `particle-float ${duration}s linear ${delay}s infinite`;
+      
+      particleNetwork.appendChild(particle);
+      
+      // Add sparkle effects
+      if (Math.random() > 0.7) {
+        const sparkle = document.createElement('div');
+        sparkle.classList.add('premium-sparkle');
+        sparkle.style.left = `${Math.random() * 100}%`;
+        sparkle.style.top = `${Math.random() * 100}%`;
+        sparkle.style.animationDelay = `${Math.random() * 5}s`;
+        particleNetwork.appendChild(sparkle);
+      }
+    }
+
+    // GSAP Scroll Animations
     gsap.registerPlugin(ScrollTrigger);
-    
-    // Animate elements on scroll
-    gsap.utils.toArray('[data-gsap]').forEach(el => {
-      gsap.from(el, {
+
+    // Animate skill meters on scroll
+    gsap.utils.toArray('.premium-skill-level').forEach(skill => {
+      ScrollTrigger.create({
+        trigger: skill,
+        start: "top 80%",
+        onEnter: () => {
+          gsap.fromTo(skill, 
+            { width: 0 }, 
+            { 
+              width: skill.style.width, 
+              duration: 1.5, 
+              ease: "power3.out",
+              overwrite: true
+            }
+          );
+        }
+      });
+    });
+
+    // Animate sections on scroll
+    gsap.utils.toArray('.premium-section-transition').forEach(section => {
+      gsap.from(section, {
         scrollTrigger: {
-          trigger: el,
+          trigger: section,
           start: "top 80%",
           toggleActions: "play none none none"
         },
@@ -501,35 +1189,70 @@
         ease: "power3.out"
       });
     });
-    
-    // Floating animation for elements with float class
-    gsap.to(".float-element", {
-      y: 20,
-      duration: 3,
-      repeat: -1,
-      yoyo: true,
-      ease: "sine.inOut"
+
+    // Interactive 3D card tilt effect
+    document.querySelectorAll('.premium-process-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const angleX = (y - centerY) / 20;
+        const angleY = (centerX - x) / 20;
+        
+        gsap.to(card, {
+          rotateX: angleX,
+          rotateY: angleY,
+          duration: 0.5
+        });
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        gsap.to(card, {
+          rotateX: 0,
+          rotateY: 0,
+          duration: 0.5
+        });
+      });
     });
-  </script>
-  
-  <!-- Structured data for SEO -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Aqib Ali",
-      "jobTitle": "Computer Science Student",
-      "url": "https://yourportfolio.com",
-      "sameAs": [
-        "https://www.linkedin.com/in/aqib-ali-19b4a623b",
-        "https://www.instagram.com/peaceful_heart66",
-        "https://github.com/aqibali"
-      ],
-      "alumniOf": {
-        "@type": "EducationalOrganization",
-        "name": "University of the People"
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          gsap.to(window, {
+            duration: 1,
+            scrollTo: {
+              y: targetElement,
+              offsetY: 80
+            },
+            ease: "power3.inOut"
+          });
+        }
+      });
+    });
+
+    // Dynamic background color change on scroll
+    ScrollTrigger.create({
+      trigger: "body",
+      start: "top top",
+      end: "max",
+      onUpdate: (self) => {
+        const scrollPercent = self.progress * 100;
+        document.body.style.background = `linear-gradient(${
+          135 + scrollPercent * 0.2
+        }deg, var(--color-primary-50) 0%, var(--color-primary-100) ${100 - scrollPercent}%, var(--color-secondary-100) 100%)`;
       }
-    }
+    });
   </script>
 </body>
 </html>
