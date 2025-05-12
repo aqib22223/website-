@@ -13,6 +13,7 @@
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" as="style">
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" as="script">
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js" as="script">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" as="script">
 
   <!-- Tailwind CSS with Extended Config -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -23,32 +24,33 @@
         extend: {
           fontFamily: {
             pop: ['Poppins', 'sans-serif'],
-            space: ['Space Grotesk', 'sans-serif']
+            space: ['Space Grotesk', 'sans-serif'],
+            futura: ['"Futura PT"', 'sans-serif']
           },
           colors: {
             primary: {
-              50: '#f8fafc',
-              100: '#f1f5f9',
-              200: '#e2e8f0',
-              300: '#cbd5e1',
-              400: '#94a3b8',
-              500: '#64748b',
-              600: '#475569',
-              700: '#334155',
-              800: '#1e293b',
-              900: '#0f172a'
+              50: '#f0fdfa',
+              100: '#ccfbf1',
+              200: '#99f6e4',
+              300: '#5eead4',
+              400: '#2dd4bf',
+              500: '#14b8a6',
+              600: '#0d9488',
+              700: '#0f766e',
+              800: '#115e59',
+              900: '#134e4a'
             },
             secondary: {
-              50: '#f0f9ff',
-              100: '#e0f2fe',
-              200: '#bae6fd',
-              300: '#7dd3fc',
-              400: '#38bdf8',
-              500: '#0ea5e9',
-              600: '#0284c7',
-              700: '#0369a1',
-              800: '#075985',
-              900: '#0c4a6e'
+              50: '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              300: '#93c5fd',
+              400: '#60a5fa',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a'
             },
             accent: {
               50: '#f5f3ff',
@@ -66,6 +68,13 @@
               400: '#00f5d4',
               500: '#00bbf9',
               600: '#9b5de5'
+            },
+            premium: {
+              dark: '#0f172a',
+              purple: '#7e22ce',
+              pink: '#ec4899',
+              blue: '#3b82f6',
+              teal: '#14b8a6'
             }
           },
           animation: {
@@ -74,7 +83,11 @@
             'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
             'spin-slow': 'spin 8s linear infinite',
             'text-gradient': 'text-gradient 8s ease infinite',
-            'border-pulse': 'border-pulse 4s ease infinite'
+            'border-pulse': 'border-pulse 4s ease infinite',
+            'glow': 'glow 2s ease-in-out infinite alternate',
+            'wave': 'wave 3s ease-in-out infinite',
+            'tilt': 'tilt 10s ease-in-out infinite',
+            'neon': 'neon 1.5s ease-in-out infinite alternate'
           },
           keyframes: {
             float: {
@@ -90,8 +103,30 @@
               '50%': { 'background-position': 'right center' },
             },
             'border-pulse': {
-              '0%, 100%': { 'border-color': 'rgba(14, 165, 233, 0.5)' },
-              '50%': { 'border-color': 'rgba(155, 93, 229, 0.5)' },
+              '0%, 100%': { 'border-color': 'rgba(20, 184, 166, 0.5)' },
+              '50%': { 'border-color': 'rgba(123, 59, 237, 0.5)' },
+            },
+            glow: {
+              '0%': { 'box-shadow': '0 0 5px rgba(59, 130, 246, 0.5)' },
+              '100%': { 'box-shadow': '0 0 20px rgba(59, 130, 246, 0.9)' }
+            },
+            wave: {
+              '0%, 100%': { transform: 'rotate(-3deg)' },
+              '50%': { transform: 'rotate(3deg)' }
+            },
+            tilt: {
+              '0%, 100%': { transform: 'rotate(-1deg)' },
+              '50%': { transform: 'rotate(1deg)' }
+            },
+            neon: {
+              '0%': { 
+                'text-shadow': '0 0 5px #fff, 0 0 10px #fff, 0 0 15px #3b82f6, 0 0 20px #3b82f6',
+                'opacity': '0.8'
+              },
+              '100%': { 
+                'text-shadow': '0 0 10px #fff, 0 0 20px #fff, 0 0 30px #3b82f6, 0 0 40px #3b82f6',
+                'opacity': '1'
+              }
             }
           }
         }
@@ -104,14 +139,20 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Futura+PT:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Custom Styles -->
   <style>
     :root {
-      --color-primary: #0f172a;
-      --color-secondary: #0ea5e9;
+      --color-primary: #14b8a6;
+      --color-secondary: #3b82f6;
       --color-accent: #8b5cf6;
       --color-electric: #00f5d4;
+      --color-premium-dark: #0f172a;
+      --color-premium-purple: #7e22ce;
+      --color-premium-pink: #ec4899;
+      --color-premium-blue: #3b82f6;
+      --color-premium-teal: #14b8a6;
     }
 
     /* Smooth scrolling */
@@ -119,46 +160,30 @@
       scroll-behavior: smooth;
     }
 
-    /* Particle Network Animation */
-    .particle-network {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-      overflow: hidden;
-    }
-
-    .particle {
-      position: absolute;
-      background: linear-gradient(45deg, var(--color-secondary), var(--color-accent));
-      border-radius: 50%;
-      pointer-events: none;
-      filter: blur(1px);
-    }
-
-    /* Glass Morphism Effect */
-    .glass {
-      background: rgba(255, 255, 255, 0.15);
+    /* Premium Glass Morphism Effect */
+    .premium-glass {
+      background: rgba(15, 23, 42, 0.7);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.3);
       transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-      box-shadow: 0 8px 32px 0 rgba(14, 165, 233, 0.1);
     }
 
-    .glass:hover {
-      background: rgba(255, 255, 255, 0.25);
-      box-shadow: 0 8px 32px 0 rgba(14, 165, 233, 0.2);
+    .premium-glass:hover {
+      background: rgba(15, 23, 42, 0.8);
+      box-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.5);
       transform: translateY(-5px);
     }
 
-    /* Gradient Text */
-    .gradient-text {
-      background: linear-gradient(45deg, var(--color-secondary), var(--color-accent), var(--color-electric));
-      background-size: 200% auto;
+    /* Ultra Gradient Text */
+    .ultra-gradient-text {
+      background: linear-gradient(45deg, 
+        var(--color-premium-teal), 
+        var(--color-premium-blue), 
+        var(--color-premium-purple), 
+        var(--color-premium-pink));
+      background-size: 300% auto;
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -166,40 +191,45 @@
     }
 
     /* Navigation Link Animation */
-    .nav-link {
+    .nav-link-ultra {
       position: relative;
       overflow: hidden;
+      transition: all 0.3s ease;
     }
 
-    .nav-link::before {
+    .nav-link-ultra::before {
       content: '';
       position: absolute;
       width: 100%;
       height: 2px;
       bottom: 0;
       left: -100%;
-      background: linear-gradient(90deg, transparent, var(--color-secondary), transparent);
+      background: linear-gradient(90deg, transparent, var(--color-premium-teal), var(--color-premium-blue), transparent);
       transition: all 0.4s ease;
     }
 
-    .nav-link:hover::before {
+    .nav-link-ultra:hover {
+      color: var(--color-premium-teal);
+    }
+
+    .nav-link-ultra:hover::before {
       left: 100%;
     }
 
     /* 3D Card Effect */
-    .card-3d {
+    .card-3d-ultra {
       transform-style: preserve-3d;
       perspective: 1000px;
       transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
-    .card-3d:hover {
-      transform: translateY(-10px) rotateX(5deg) scale(1.02);
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    .card-3d-ultra:hover {
+      transform: translateY(-15px) rotateX(5deg) scale(1.03);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     }
 
     /* Floating Animation */
-    .floating {
+    .floating-ultra {
       animation: float 6s ease-in-out infinite;
     }
 
@@ -215,17 +245,17 @@
     }
 
     ::-webkit-scrollbar-thumb {
-      background: linear-gradient(var(--color-secondary), var(--color-accent));
+      background: linear-gradient(var(--color-premium-teal), var(--color-premium-blue));
       border-radius: 10px;
       transition: all 0.3s;
     }
 
     ::-webkit-scrollbar-thumb:hover {
-      background: linear-gradient(var(--color-accent), var(--color-electric));
+      background: linear-gradient(var(--color-premium-blue), var(--color-premium-purple));
     }
 
     /* Hamburger Animation */
-    .hamburger path {
+    .hamburger-ultra path {
       transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
@@ -242,17 +272,17 @@
     }
 
     /* Hero Glow Effect */
-    .hero-glow {
-      filter: drop-shadow(0 0 20px rgba(14, 165, 233, 0.4));
+    .hero-glow-ultra {
+      filter: drop-shadow(0 0 25px rgba(20, 184, 166, 0.6));
     }
 
     /* Animated Gradient Border */
-    .gradient-border {
+    .gradient-border-ultra {
       position: relative;
       border-radius: 1rem;
     }
 
-    .gradient-border::before {
+    .gradient-border-ultra::before {
       content: '';
       position: absolute;
       top: -2px;
@@ -261,64 +291,148 @@
       bottom: -2px;
       z-index: -1;
       border-radius: 1rem;
-      background: linear-gradient(45deg, var(--color-secondary), var(--color-accent), var(--color-electric));
+      background: linear-gradient(45deg, 
+        var(--color-premium-teal), 
+        var(--color-premium-blue), 
+        var(--color-premium-purple));
       background-size: 200% 200%;
       animation: gradient-x 8s ease infinite;
     }
 
     /* Button Hover Effect */
-    .btn-hover {
+    .btn-hover-ultra {
       transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
       background-size: 200% auto;
+      position: relative;
+      overflow: hidden;
     }
 
-    .btn-hover:hover {
+    .btn-hover-ultra:hover {
       background-position: right center;
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-hover-ultra::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, 
+        rgba(255,255,255,0.1), 
+        rgba(255,255,255,0.3), 
+        rgba(255,255,255,0.1));
+      transform: translateX(-100%);
+      transition: transform 0.6s ease;
+    }
+
+    .btn-hover-ultra:hover::after {
+      transform: translateX(100%);
     }
 
     /* Section Transition */
-    .section-transition {
+    .section-transition-ultra {
       transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     /* Focus Styles */
     *:focus-visible {
-      outline: 2px solid var(--color-secondary);
+      outline: 2px solid var(--color-premium-teal);
       outline-offset: 4px;
       border-radius: 4px;
+    }
+
+    /* Particle Network Animation */
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      background: linear-gradient(135deg, var(--color-premium-dark) 0%, #1e293b 100%);
+    }
+
+    /* Typewriter Effect */
+    .typewriter {
+      border-right: 3px solid var(--color-premium-teal);
+      animation: blink-caret 0.75s step-end infinite;
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: var(--color-premium-teal); }
+    }
+
+    /* Floating Elements */
+    .floating-element {
+      animation: float 6s ease-in-out infinite;
+      will-change: transform;
+    }
+
+    /* Neon Effect */
+    .neon-text {
+      animation: neon 1.5s ease-in-out infinite alternate;
+    }
+
+    /* Wave Animation */
+    .wave-animation {
+      animation: wave 3s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    /* Tilt Animation */
+    .tilt-animation {
+      animation: tilt 10s ease-in-out infinite;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .navbar-ultra {
+        width: 95%;
+        padding: 10px 2.5%;
+      }
+      .navbar-brand-ultra {
+        font-size: 1.2rem;
+      }
+      .mobile-menu-ultra {
+        width: 100%;
+        left: 0;
+        right: 0;
+      }
     }
   </style>
 </head>
 
-<body class="bg-gradient-to-br from-white via-blue-50 to-blue-100 font-pop text-primary-900 antialiased">
+<body class="bg-gradient-to-br from-premium-dark via-gray-900 to-gray-800 font-pop text-gray-100 antialiased overflow-x-hidden">
 
   <!-- Particle Background -->
-  <div id="particle-network" class="particle-network"></div>
+  <div id="particles-js"></div>
 
   <!-- Navigation -->
-  <header class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-lg shadow-sm z-50 transition-all duration-300 hover:bg-white/95">
+  <header class="fixed top-0 left-0 w-full bg-premium-dark/90 backdrop-blur-lg shadow-sm z-50 transition-all duration-300 hover:bg-premium-dark/95">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
       <!-- Logo -->
       <div class="flex items-center space-x-8">
-        <a href="#home" class="text-2xl font-bold text-primary-800 font-space hover:text-secondary-500 transition">
+        <a href="#home" class="text-2xl font-bold text-premium-teal font-space hover:text-premium-blue transition neon-text">
           Aqib Ali
         </a>
         
         <!-- Desktop Navigation -->
         <nav class="hidden md:flex space-x-8">
-          <a href="#home" class="nav-link text-primary-700 hover:text-secondary-500 font-medium">Home</a>
-          <a href="about.html" class="nav-link text-primary-700 hover:text-secondary-500 font-medium">About</a>
-          <a href="services.html" class="nav-link text-primary-700 hover:text-secondary-500 font-medium">Services</a>
-          <a href="skills.html" class="nav-link text-primary-700 hover:text-secondary-500 font-medium">Skills</a>
-          <a href="contact.html" class="nav-link text-primary-700 hover:text-secondary-500 font-medium">Contact</a>
+          <a href="#home" class="nav-link-ultra text-gray-300 hover:text-premium-teal font-medium">Home</a>
+          <a href="about.html" class="nav-link-ultra text-gray-300 hover:text-premium-blue font-medium">About</a>
+          <a href="services.html" class="nav-link-ultra text-gray-300 hover:text-premium-purple font-medium">Services</a>
+          <a href="skills.html" class="nav-link-ultra text-gray-300 hover:text-premium-pink font-medium">Skills</a>
+          <a href="contact.html" class="nav-link-ultra text-gray-300 hover:text-premium-teal font-medium">Contact</a>
         </nav>
       </div>
 
       <!-- Mobile Menu Button -->
       <button id="menu-toggle" class="md:hidden focus:outline-none group" aria-label="Toggle menu">
-        <svg class="w-8 h-8 text-primary-700 group-hover:text-secondary-500 transition hamburger" viewBox="0 0 24 24">
+        <svg class="w-8 h-8 text-gray-300 group-hover:text-premium-teal transition hamburger-ultra" viewBox="0 0 24 24">
           <path id="hamburger-top" class="hamburger-top" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 6h16" />
           <path id="hamburger-middle" class="hamburger-middle" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 12h16" />
           <path id="hamburger-bottom" class="hamburger-bottom" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 18h16" />
@@ -327,187 +441,343 @@
     </div>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="md:hidden hidden bg-white/95 backdrop-blur-lg px-6 pb-4 transition-all duration-300 transform origin-top">
+    <div id="mobile-menu" class="md:hidden hidden bg-premium-dark/95 backdrop-blur-lg px-6 pb-4 transition-all duration-300 transform origin-top mobile-menu-ultra">
       <div class="flex flex-col space-y-4 py-4">
-        <a href="#home" class="py-2 text-primary-700 hover:text-secondary-500 border-b border-gray-100 transition">Home</a>
-        <a href="about.html" class="py-2 text-primary-700 hover:text-secondary-500 border-b border-gray-100 transition">About</a>
-        <a href="services.html" class="py-2 text-primary-700 hover:text-secondary-500 border-b border-gray-100 transition">Services</a>
-        <a href="skills.html" class="py-2 text-primary-700 hover:text-secondary-500 border-b border-gray-100 transition">Skills</a>
-        <a href="contact.html" class="py-2 text-primary-700 hover:text-secondary-500 transition">Contact</a>
+        <a href="#home" class="py-2 text-gray-300 hover:text-premium-teal border-b border-gray-800 transition">Home</a>
+        <a href="about.html" class="py-2 text-gray-300 hover:text-premium-blue border-b border-gray-800 transition">About</a>
+        <a href="services.html" class="py-2 text-gray-300 hover:text-premium-purple border-b border-gray-800 transition">Services</a>
+        <a href="skills.html" class="py-2 text-gray-300 hover:text-premium-pink border-b border-gray-800 transition">Skills</a>
+        <a href="contact.html" class="py-2 text-gray-300 hover:text-premium-teal transition">Contact</a>
       </div>
     </div>
   </header>
 
   <!-- Hero Section -->
   <section id="home" class="min-h-screen flex items-center justify-center pt-20 px-6 relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-r from-blue-800 via-blue-600 to-blue-400 opacity-90"></div>
     <div class="max-w-7xl mx-auto text-center relative z-10" data-aos="fade-up">
-      <div class="floating mb-10 hero-glow">
-        <img src="aqib-profile.jpg" alt="Aqib Ali" 
-             class="w-40 h-40 mx-auto rounded-full border-4 border-white shadow-2xl object-cover gradient-border">
+      <div class="floating-ultra mb-10 hero-glow-ultra">
+        <div class="relative inline-block">
+          <img src="aqib-profile.jpg" alt="Aqib Ali" 
+               class="w-48 h-48 mx-auto rounded-full border-4 border-premium-teal/50 shadow-2xl object-cover gradient-border-ultra hover:border-premium-blue/50 transition-all duration-300">
+          <div class="absolute inset-0 rounded-full border-4 border-transparent animate-border-pulse"></div>
+        </div>
       </div>
-      <h1 class="text-4xl md:text-5xl font-extrabold mb-6">
+      
+      <h1 class="text-4xl md:text-6xl font-extrabold mb-6">
         Hi, I'm 
-        <span class="bg-gradient-to-r from-amber-300 via-rose-400 to-fuchsia-500 text-transparent bg-clip-text">
+        <span class="ultra-gradient-text">
           Aqib Ali
         </span>
       </h1>
       
+      <div class="typewriter-container inline-block">
+        <h2 class="text-2xl md:text-3xl font-bold mb-8 inline-block typewriter" id="typewriter"></h2>
+      </div>
       
-      <p class="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto">
-        A passionate <span class="font-bold text-yellow-300">Full Stack Developer</span>, 
-        <span class="font-bold text-yellow-300">Graphic Designer</span>, 
-        <span class="font-bold text-yellow-300">WordPress Expert</span>, and 
-        <span class="font-bold text-yellow-300">CV Writer</span> transforming ideas into digital experiences.
+      <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto">
+        Creating <span class="font-bold text-premium-teal">digital experiences</span> that blend 
+        <span class="font-bold text-premium-blue">technology</span> with 
+        <span class="font-bold text-premium-purple">creativity</span> to deliver 
+        <span class="font-bold text-premium-pink">exceptional results</span>.
       </p>
-      <div class="flex flex-col sm:flex-row justify-center gap-4">
+      
+      <div class="flex flex-col sm:flex-row justify-center gap-6">
         <a href="about.html" 
-           class="btn-hover px-8 py-3 bg-white text-primary-700 font-bold rounded-full shadow-lg hover:bg-secondary-500 hover:text-white transition-all duration-300 bg-gradient-to-r from-white to-gray-100">
+           class="btn-hover-ultra px-8 py-3 bg-gradient-to-r from-premium-teal to-premium-blue text-premium-dark font-bold rounded-full shadow-lg hover:from-premium-blue hover:to-premium-purple transition-all duration-300">
           Discover More
         </a>
         <a href="contact.html" 
-           class="btn-hover px-8 py-3 border-2 border-white text-white font-bold rounded-full hover:bg-white/20 transition-all duration-300">
+           class="btn-hover-ultra px-8 py-3 border-2 border-premium-teal text-premium-teal font-bold rounded-full hover:bg-premium-teal/10 hover:border-premium-blue transition-all duration-300">
           Get In Touch
         </a>
+      </div>
+      
+      <!-- Floating Tech Icons -->
+      <div class="absolute -left-20 top-1/4 text-premium-blue/30 text-6xl floating-element">
+        <i class="fab fa-html5"></i>
+      </div>
+      <div class="absolute -right-20 top-1/3 text-premium-purple/30 text-6xl floating-element" style="animation-delay: 1s;">
+        <i class="fab fa-css3-alt"></i>
+      </div>
+      <div class="absolute left-1/4 bottom-1/4 text-premium-pink/30 text-6xl floating-element" style="animation-delay: 2s;">
+        <i class="fab fa-js"></i>
+      </div>
+      <div class="absolute right-1/4 bottom-1/3 text-premium-teal/30 text-6xl floating-element" style="animation-delay: 3s;">
+        <i class="fab fa-react"></i>
       </div>
     </div>
   </section>
 
   <!-- Services Section -->
-  <section id="services" class="py-24 bg-white section-transition">
+  <section id="services" class="py-24 bg-premium-dark/90 backdrop-blur-sm section-transition-ultra">
     <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 font-space" data-aos="fade-up">
-        What Can I Do
-      </h2>
+      <div class="text-center mb-16" data-aos="fade-up">
+        <h2 class="text-3xl md:text-5xl font-bold mb-4 font-space ultra-gradient-text">
+          My Premium Services
+        </h2>
+        <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+          Cutting-edge solutions tailored to your digital needs with premium quality and innovation.
+        </p>
+      </div>
+      
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Service 1 -->
-        <div class="glass card-3d p-8 rounded-xl shadow-lg hover:shadow-xl" data-aos="zoom-in" data-aos-delay="100">
-          <div class="text-5xl mb-4 text-secondary-500">💻</div>
-          <h3 class="text-xl font-semibold mb-4">Full Stack Development</h3>
-          <p class="text-primary-600">Modern web apps using MERN stack, API integration & performance optimization.</p>
+        <div class="premium-glass card-3d-ultra p-8 rounded-xl" data-aos="zoom-in" data-aos-delay="100">
+          <div class="text-5xl mb-4 text-premium-teal">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-4 text-premium-teal">Full Stack Development</h3>
+          <p class="text-gray-400">Modern web applications using cutting-edge technologies with premium performance optimization.</p>
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-premium-dark/50 text-premium-teal rounded-full text-sm">MERN Stack</span>
+            <span class="px-3 py-1 bg-premium-dark/50 text-premium-blue rounded-full text-sm">API Integration</span>
+            <span class="px-3 py-1 bg-premium-dark/50 text-premium-purple rounded-full text-sm">Performance</span>
+          </div>
         </div>
         
         <!-- Service 2 -->
-        <div class="glass card-3d p-8 rounded-xl shadow-lg hover:shadow-xl" data-aos="zoom-in" data-aos-delay="200">
-          <div class="text-5xl mb-4 text-accent-500">🎨</div>
-          <h3 class="text-xl font-semibold mb-4">Graphic Design</h3>
-          <p class="text-primary-600">Creative visuals, posters, and branding that stand out and deliver messages clearly.</p>
+        <div class="premium-glass card-3d-ultra p-8 rounded-xl" data-aos="zoom-in" data-aos-delay="200">
+          <div class="text-5xl mb-4 text-premium-blue">
+            <i class="fas fa-paint-brush"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-4 text-premium-blue">Graphic Design</h3>
+          <p class="text-gray-400">Premium visual designs that communicate your brand's essence with clarity and impact.</p>
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-premium-dark/50 text-premium-blue rounded-full text-sm">Branding</span>
+            <span class="px-3 py-1 bg-premium-dark/50 text-premium-purple rounded-full text-sm">Posters</span>
+            <span class="px-3 py-1 bg-premium-dark/50 text-premium-pink rounded-full text-sm">Visuals</span>
+          </div>
         </div>
         
         <!-- Service 3 -->
-        <div class="glass card-3d p-8 rounded-xl shadow-lg hover:shadow-xl" data-aos="zoom-in" data-aos-delay="300">
-          <div class="text-5xl mb-4 text-secondary-500">🔧</div>
-          <h3 class="text-xl font-semibold mb-4">WordPress Expert</h3>
-          <p class="text-primary-600">Professional websites with themes, plugins, speed & SEO enhancements.</p>
+        <div class="premium-glass card-3d-ultra p-8 rounded-xl" data-aos="zoom-in" data-aos-delay="300">
+          <div class="text-5xl mb-4 text-premium-purple">
+            <i class="fab fa-wordpress"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-4 text-premium-purple">WordPress Expert</h3>
+          <p class="text-gray-400">Premium WordPress solutions with custom themes, plugins, and performance optimization.</p>
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-premium-dark/50 text-premium-purple rounded-full text-sm">Themes</span>
+            <span class="px-3 py-1 bg-premium-dark/50 text-premium-pink rounded-full text-sm">Plugins</span>
+            <span class="px-3 py-1 bg-premium-dark/50 text-premium-teal rounded-full text-sm">SEO</span>
+          </div>
         </div>
         
         <!-- Service 4 -->
-        <div class="glass card-3d p-8 rounded-xl shadow-lg hover:shadow-xl" data-aos="zoom-in" data-aos-delay="400">
-          <div class="text-5xl mb-4 text-accent-500">💡</div>
-          <h3 class="text-xl font-semibold mb-4">Programming</h3>
-          <p class="text-primary-600">Advanced coding in Python, Java, and C++ for reliable backend logic.</p>
+        <div class="premium-glass card-3d-ultra p-8 rounded-xl" data-aos="zoom-in" data-aos-delay="400">
+          <div class="text-5xl mb-4 text-premium-pink">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-4 text-premium-pink">Programming</h3>
+          <p class="text-gray-400">Advanced coding solutions in multiple languages for robust backend systems.</p>
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-premium-dark/50 text-premium-pink rounded-full text-sm">Python</span>
+            <span class="px-3 py-1 bg-premium-dark/50 text-premium-teal rounded-full text-sm">Java</span>
+            <span class="px-3 py-1 bg-premium-dark/50 text-premium-blue rounded-full text-sm">C++</span>
+          </div>
         </div>
         
         <!-- Service 5 -->
-        <div class="glass card-3d p-8 rounded-xl shadow-lg hover:shadow-xl" data-aos="zoom-in" data-aos-delay="500">
-          <div class="text-5xl mb-4 text-secondary-500">📄</div>
-          <h3 class="text-xl font-semibold mb-4">CV Writing</h3>
-          <p class="text-primary-600">Creating high-converting CVs and LinkedIn profiles tailored to job success.</p>
+        <div class="premium-glass card-3d-ultra p-8 rounded-xl" data-aos="zoom-in" data-aos-delay="500">
+          <div class="text-5xl mb-4 text-premium-teal">
+            <i class="fas fa-file-alt"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-4 text-premium-teal">CV Writing</h3>
+          <p class="text-gray-400">Premium CVs and LinkedIn profiles designed to maximize your career opportunities.</p>
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-premium-dark/50 text-premium-teal rounded-full text-sm">Resumes</span>
+            <span class="px-3 py-1 bg-premium-dark/50 text-premium-blue rounded-full text-sm">Cover Letters</span>
+            <span class="px-3 py-1 bg-premium-dark/50 text-premium-purple rounded-full text-sm">LinkedIn</span>
+          </div>
         </div>
         
         <!-- Service 6 -->
-        <div class="glass card-3d p-8 rounded-xl shadow-lg hover:shadow-xl" data-aos="zoom-in" data-aos-delay="600">
-          <div class="text-5xl mb-4 text-accent-500">🎬</div>
-          <h3 class="text-xl font-semibold mb-4">Video Editing</h3>
-          <p class="text-primary-600">High-quality, engaging video content using Adobe Premiere & other tools.</p>
+        <div class="premium-glass card-3d-ultra p-8 rounded-xl" data-aos="zoom-in" data-aos-delay="600">
+          <div class="text-5xl mb-4 text-premium-blue">
+            <i class="fas fa-video"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-4 text-premium-blue">Video Editing</h3>
+          <p class="text-gray-400">Premium video content creation with professional editing and effects.</p>
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-premium-dark/50 text-premium-blue rounded-full text-sm">Premiere Pro</span>
+            <span class="px-3 py-1 bg-premium-dark/50 text-premium-purple rounded-full text-sm">After Effects</span>
+            <span class="px-3 py-1 bg-premium-dark/50 text-premium-pink rounded-full text-sm">Motion Graphics</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Testimonials Section -->
-  <section class="py-24 bg-gradient-to-r from-primary-100 via-blue-50 to-primary-100 section-transition">
+  <section class="py-24 bg-gradient-to-br from-premium-dark via-gray-900 to-premium-dark/90 backdrop-blur-sm section-transition-ultra">
     <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 font-space" data-aos="fade-up">
-        What People Say About Me
-      </h2>
-      <div class="flex flex-col md:flex-row justify-center gap-8">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <h2 class="text-3xl md:text-5xl font-bold mb-4 font-space ultra-gradient-text">
+          Client Testimonials
+        </h2>
+        <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+          What industry professionals say about my premium services
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <!-- Testimonial 1 -->
-        <div class="glass card-3d p-6 max-w-md rounded-xl shadow-lg" data-aos="fade-right" data-aos-delay="100">
-          <div class="flex items-center gap-4 mb-4">
-            <img src="dr-mudasirs.jpg" alt="Dr. Mudasir Memon" class="w-16 h-16 rounded-full object-cover border-2 border-secondary-500" />
+        <div class="premium-glass p-8 rounded-xl" data-aos="fade-right" data-aos-delay="100">
+          <div class="flex items-start gap-6 mb-6">
+            <img src="dr-mudasirs.jpg" alt="Dr. Mudasir Memon" class="w-20 h-20 rounded-full object-cover border-2 border-premium-teal" />
             <div>
-              <h4 class="text-lg font-bold text-primary-800">Dr. Mudasir Memon</h4>
-              <p class="text-sm text-primary-600">CEO</p>
+              <h4 class="text-xl font-bold text-premium-teal">Dr. Mudasir Memon</h4>
+              <p class="text-premium-blue mb-2">CEO</p>
+              <div class="flex text-yellow-400 mb-2">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
             </div>
           </div>
-          <p class="text-primary-700">
-            "Aqib is an incredibly talented developer and creative designer. His dedication and quality of work consistently exceed expectations."
+          <p class="text-gray-300 italic">
+            "Aqib delivered beyond our expectations with his premium development skills. His attention to detail and innovative approach resulted in a website that perfectly represents our brand. The performance optimizations he implemented have significantly improved our conversion rates."
           </p>
         </div>
         
         <!-- Testimonial 2 -->
-        <div class="glass card-3d p-6 max-w-md rounded-xl shadow-lg" data-aos="fade-left" data-aos-delay="200">
-          <div class="flex items-center gap-4 mb-4">
-            <img src="dr-mar.jpg" alt="Dr. Mar Augustin" class="w-16 h-16 rounded-full object-cover border-2 border-accent-500" />
+        <div class="premium-glass p-8 rounded-xl" data-aos="fade-left" data-aos-delay="200">
+          <div class="flex items-start gap-6 mb-6">
+            <img src="dr-mar.jpg" alt="Dr. Mar Augustin" class="w-20 h-20 rounded-full object-cover border-2 border-premium-blue" />
             <div>
-              <h4 class="text-lg font-bold text-primary-800">Dr. Mar Augustin</h4>
-              <p class="text-sm text-primary-600">Instructor</p>
+              <h4 class="text-xl font-bold text-premium-blue">Dr. Mar Augustin</h4>
+              <p class="text-premium-purple mb-2">Instructor</p>
+              <div class="flex text-yellow-400 mb-2">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
             </div>
           </div>
-          <p class="text-primary-700">
-            "He combines technical skills with excellent communication and professionalism. Highly recommended!"
+          <p class="text-gray-300 italic">
+            "Working with Aqib was a premium experience. His technical expertise combined with excellent communication skills made the entire process smooth. The WordPress site he created for our institution has received countless compliments for its design and functionality."
           </p>
+        </div>
+      </div>
+      
+      <!-- Trust Indicators -->
+      <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6" data-aos="fade-up">
+        <div class="text-center premium-glass p-6 rounded-xl">
+          <div class="text-4xl font-bold text-premium-teal mb-2">50+</div>
+          <p class="text-gray-400">Projects Completed</p>
+        </div>
+        <div class="text-center premium-glass p-6 rounded-xl">
+          <div class="text-4xl font-bold text-premium-blue mb-2">100%</div>
+          <p class="text-gray-400">Client Satisfaction</p>
+        </div>
+        <div class="text-center premium-glass p-6 rounded-xl">
+          <div class="text-4xl font-bold text-premium-purple mb-2">5+</div>
+          <p class="text-gray-400">Years Experience</p>
+        </div>
+        <div class="text-center premium-glass p-6 rounded-xl">
+          <div class="text-4xl font-bold text-premium-pink mb-2">∞</div>
+          <p class="text-gray-400">Creativity</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CTA Section -->
-  <section class="py-20 bg-gradient-to-r from-secondary-500 to-accent-500 text-white text-center section-transition">
+  <section class="py-20 bg-gradient-to-r from-premium-teal via-premium-blue to-premium-purple text-white text-center section-transition-ultra">
     <div class="max-w-4xl mx-auto px-6" data-aos="zoom-in">
-      <h3 class="text-3xl md:text-4xl font-bold mb-6 font-space">Need a Professional?</h3>
+      <h3 class="text-3xl md:text-5xl font-bold mb-6 font-space">Ready to Start Your Premium Project?</h3>
       <p class="text-xl mb-8 max-w-2xl mx-auto">
-        Let's work together to bring your vision into reality. I'm open to freelance and long-term roles.
+        Let's collaborate to create something extraordinary with my premium services.
       </p>
-      <a href="contact.html" 
-         class="btn-hover inline-block bg-white text-primary-700 font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-primary-800 hover:text-white transition-all duration-300 bg-gradient-to-r from-white to-gray-100">
-        Hire Me
-      </a>
+      <div class="flex flex-col sm:flex-row justify-center gap-6">
+        <a href="contact.html" 
+           class="btn-hover-ultra px-8 py-3 bg-premium-dark text-white font-bold rounded-full shadow-lg hover:bg-premium-dark/90 transition-all duration-300">
+          Get a Free Quote
+        </a>
+        <a href="tel:+1234567890" 
+           class="btn-hover-ultra px-8 py-3 border-2 border-white text-white font-bold rounded-full hover:bg-white/10 transition-all duration-300">
+          <i class="fas fa-phone-alt mr-2"></i> Call Now
+        </a>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-primary-900 text-white py-12 section-transition">
+  <footer class="bg-premium-dark py-16 section-transition-ultra">
     <div class="max-w-7xl mx-auto px-6">
-      <div class="flex flex-col md:flex-row justify-between items-center">
-        <div class="mb-8 md:mb-0">
-          <h2 class="text-2xl font-bold mb-4 font-space">Aqib Ali</h2>
-          <p class="text-primary-300 max-w-md">
-            Computer Science professional with expertise in software development, AI, and web technologies.
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div>
+          <h3 class="text-2xl font-bold mb-6 text-premium-teal font-space">Aqib Ali</h3>
+          <p class="text-gray-400 mb-6">
+            Premium digital creator specializing in full stack development, design, and content creation.
           </p>
+          <div class="flex space-x-4">
+            <a href="https://www.instagram.com/peaceful_heart66?igsh=am01cno0eHk2N29j" target="_blank" rel="noopener noreferrer" 
+               class="social-icon bg-gray-800 text-gray-300 rounded-full p-3 text-lg hover:bg-gradient-to-br hover:from-pink-500 hover:to-yellow-500 hover:text-white transition transform hover:-translate-y-1" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/aqib-ali-19b4a623b" target="_blank" rel="noopener noreferrer" 
+               class="social-icon bg-gray-800 text-gray-300 rounded-full p-3 text-lg hover:bg-gradient-to-br hover:from-blue-500 hover:to-blue-700 hover:text-white transition transform hover:-translate-y-1" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" 
+               class="social-icon bg-gray-800 text-gray-300 rounded-full p-3 text-lg hover:bg-gradient-to-br hover:from-blue-600 hover:to-blue-800 hover:text-white transition transform hover:-translate-y-1" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://wa.me/yourphonenumber" target="_blank" rel="noopener noreferrer" 
+               class="social-icon bg-gray-800 text-gray-300 rounded-full p-3 text-lg hover:bg-gradient-to-br hover:from-green-500 hover:to-green-600 hover:text-white transition transform hover:-translate-y-1" aria-label="WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
         </div>
-        <div class="flex space-x-6 mb-8 md:mb-0">
-          <a href="https://www.instagram.com/peaceful_heart66?igsh=am01cno0eHk2N29j" target="_blank" rel="noopener noreferrer" 
-             class="social-icon bg-white text-primary-900 rounded-full p-3 text-lg hover:bg-gradient-to-br hover:from-pink-500 hover:to-yellow-500 hover:text-white transition transform hover:-translate-y-1" aria-label="Instagram">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/aqib-ali-19b4a623b" target="_blank" rel="noopener noreferrer" 
-             class="social-icon bg-white text-primary-900 rounded-full p-3 text-lg hover:bg-gradient-to-br hover:from-blue-500 hover:to-blue-700 hover:text-white transition transform hover:-translate-y-1" aria-label="LinkedIn">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" 
-             class="social-icon bg-white text-primary-900 rounded-full p-3 text-lg hover:bg-gradient-to-br hover:from-blue-600 hover:to-blue-800 hover:text-white transition transform hover:-translate-y-1" aria-label="Facebook">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-          <a href="https://wa.me/yourphonenumber" target="_blank" rel="noopener noreferrer" 
-             class="social-icon bg-white text-primary-900 rounded-full p-3 text-lg hover:bg-gradient-to-br hover:from-green-500 hover:to-green-600 hover:text-white transition transform hover:-translate-y-1" aria-label="WhatsApp">
-            <i class="fab fa-whatsapp"></i>
-          </a>
+        
+        <div>
+          <h4 class="text-lg font-bold mb-6 text-premium-blue">Quick Links</h4>
+          <ul class="space-y-3">
+            <li><a href="#home" class="text-gray-400 hover:text-premium-teal transition">Home</a></li>
+            <li><a href="about.html" class="text-gray-400 hover:text-premium-blue transition">About</a></li>
+            <li><a href="services.html" class="text-gray-400 hover:text-premium-purple transition">Services</a></li>
+            <li><a href="skills.html" class="text-gray-400 hover:text-premium-pink transition">Skills</a></li>
+            <li><a href="contact.html" class="text-gray-400 hover:text-premium-teal transition">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-bold mb-6 text-premium-purple">Services</h4>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-gray-400 hover:text-premium-teal transition">Web Development</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-premium-blue transition">Graphic Design</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-premium-purple transition">WordPress</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-premium-pink transition">Programming</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-premium-teal transition">CV Writing</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-bold mb-6 text-premium-pink">Contact</h4>
+          <ul class="space-y-3 text-gray-400">
+            <li class="flex items-start gap-3">
+              <i class="fas fa-envelope mt-1 text-premium-teal"></i>
+              <span>aqibali@example.com</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-phone-alt mt-1 text-premium-blue"></i>
+              <span>+123 456 7890</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-map-marker-alt mt-1 text-premium-purple"></i>
+              <span>Karachi, Pakistan</span>
+            </li>
+          </ul>
         </div>
       </div>
-      <div class="border-t border-primary-800 mt-8 pt-8 text-center text-primary-400 text-sm">
-        <p>© 2025 Aqib Ali. All rights reserved.</p>
+      
+      <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
+        <p>© 2025 Aqib Ali. All rights reserved. | Designed with <i class="fas fa-heart text-premium-pink"></i> by Aqib Ali</p>
       </div>
     </div>
   </footer>
@@ -521,12 +791,15 @@
   
   <!-- Font Awesome -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+  
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
   <!-- Main Script -->
   <script>
     // Initialize AOS animations
     AOS.init({
-      duration: 800,
+      duration: 1000,
       once: true,
       easing: 'ease-out-quart'
     });
@@ -548,39 +821,86 @@
       });
     });
 
-    // Particle network animation
-    const particleNetwork = document.getElementById('particle-network');
-    const particleCount = 80;
-    
-    for (let i = 0; i < particleCount; i++) {
-      const particle = document.createElement('div');
-      particle.classList.add('particle');
+    // Typewriter effect
+    const phrases = ["Full Stack Developer", "Graphic Designer", "WordPress Expert", "CV Writer", "Digital Creator"];
+    const typewriter = document.getElementById('typewriter');
+    let i = 0, j = 0, isDeleting = false, isEnd = false;
+
+    function typeWriter() {
+      const currentPhrase = phrases[i];
       
-      // Random size between 1px and 4px
-      const size = Math.random() * 3 + 1;
-      particle.style.width = `${size}px`;
-      particle.style.height = `${size}px`;
+      if (isDeleting) {
+        typewriter.textContent = currentPhrase.substring(0, j--);
+        if (j === 0) {
+          isDeleting = false;
+          i = (i + 1) % phrases.length;
+        }
+      } else {
+        typewriter.textContent = currentPhrase.substring(0, j++);
+        if (j === currentPhrase.length) {
+          isEnd = true;
+          isDeleting = true;
+        }
+      }
       
-      // Random position
-      particle.style.left = `${Math.random() * 100}%`;
-      particle.style.top = `${Math.random() * 100}%`;
+      const speed = isDeleting ? 50 : isEnd ? 1000 : 100;
+      setTimeout(typeWriter, speed);
       
-      // Random opacity
-      particle.style.opacity = Math.random() * 0.6 + 0.2;
-      
-      // Random animation
-      const duration = Math.random() * 20 + 10;
-      const delay = Math.random() * 5;
-      particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
-      
-      particleNetwork.appendChild(particle);
+      if (isEnd) isEnd = false;
     }
+    
+    // Start typewriter after 1 second
+    setTimeout(typeWriter, 1000);
+
+    // Initialize particles.js
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": "#3b82f6" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.5, "random": true },
+        "size": { "value": 3, "random": true },
+        "line_linked": { 
+          "enable": true, 
+          "distance": 150, 
+          "color": "#14b8a6", 
+          "opacity": 0.4, 
+          "width": 1 
+        },
+        "move": { 
+          "enable": true, 
+          "speed": 2, 
+          "direction": "none", 
+          "random": true, 
+          "straight": false, 
+          "out_mode": "out", 
+          "bounce": false, 
+          "attract": { "enable": true, "rotateX": 600, "rotateY": 1200 } 
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { "enable": true, "mode": "grab" },
+          "onclick": { "enable": true, "mode": "push" },
+          "resize": true
+        },
+        "modes": {
+          "grab": { "distance": 140, "line_linked": { "opacity": 1 } },
+          "bubble": { "distance": 400, "size": 40, "duration": 2, "opacity": 8, "speed": 3 },
+          "repulse": { "distance": 200, "duration": 0.4 },
+          "push": { "particles_nb": 4 },
+          "remove": { "particles_nb": 2 }
+        }
+      },
+      "retina_detect": true
+    });
 
     // GSAP Scroll Animations
     gsap.registerPlugin(ScrollTrigger);
 
     // Animate sections on scroll
-    gsap.utils.toArray('.section-transition').forEach(section => {
+    gsap.utils.toArray('.section-transition-ultra').forEach(section => {
       gsap.from(section, {
         scrollTrigger: {
           trigger: section,
@@ -588,8 +908,8 @@
           toggleActions: "play none none none"
         },
         opacity: 0,
-        y: 50,
-        duration: 1,
+        y: 100,
+        duration: 1.2,
         ease: "power3.out"
       });
     });
@@ -605,7 +925,7 @@
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
           gsap.to(window, {
-            duration: 1,
+            duration: 1.2,
             scrollTo: {
               y: targetElement,
               offsetY: 80
@@ -616,17 +936,15 @@
       });
     });
 
-    // Cursor follower effect (optional)
-    document.addEventListener('mousemove', (e) => {
-      const cursorFollower = document.createElement('div');
-      cursorFollower.classList.add('cursor-follower');
-      cursorFollower.style.left = `${e.clientX}px`;
-      cursorFollower.style.top = `${e.clientY}px`;
-      document.body.appendChild(cursorFollower);
-      
-      setTimeout(() => {
-        cursorFollower.remove();
-      }, 1000);
+    // Floating elements animation
+    gsap.utils.toArray('.floating-element').forEach((el, i) => {
+      gsap.to(el, {
+        y: 20,
+        duration: 3 + i,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
+      });
     });
 
     // Dynamic background color change on scroll
@@ -636,10 +954,23 @@
       end: "max",
       onUpdate: (self) => {
         const scrollPercent = self.progress * 100;
-        document.body.style.background = `linear-gradient(${
-          135 + scrollPercent * 0.2
-        }deg, #f8fafc 0%, #f1f5f9 ${100 - scrollPercent}%, #e0f2fe 100%)`;
+        const hueRotate = scrollPercent * 0.2;
+        document.body.style.filter = `hue-rotate(${hueRotate}deg)`;
       }
+    });
+
+    // Cursor follower effect
+    const cursorFollower = document.createElement('div');
+    cursorFollower.classList.add('cursor-follower');
+    document.body.appendChild(cursorFollower);
+    
+    document.addEventListener('mousemove', (e) => {
+      gsap.to(cursorFollower, {
+        x: e.clientX,
+        y: e.clientY,
+        duration: 0.5,
+        ease: "power2.out"
+      });
     });
   </script>
 </body>
